@@ -59,6 +59,8 @@ export default App
 
 Please go to `example` directory or click to [App.js](./example/src/App.js)
 
+- Online Demo: [Demo](https://buildingwatsize.github.io/thaidatepicker-react)
+
 ## License
 
 MIT © [buildingwatsize](https://github.com/buildingwatsize)
