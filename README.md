@@ -1,6 +1,6 @@
 # thaidatepicker-react
 
-[![NPM](https://img.shields.io/npm/v/thaidatepicker-react.svg)](https://www.npmjs.com/package/thaidatepicker-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/thaidatepicker-react.svg)](https://www.npmjs.com/package/thaidatepicker-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![NPM](https://img.shields.io/badge/BAAC-Library-289548)](https://www.npmjs.com/package/thaidatepicker-react)
 
 ## 📘 About
 

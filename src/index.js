@@ -30,6 +30,12 @@ const CustomInputWrapper = React.forwardRef((props, ref) => (
   </div>
 ))
 
+const headerStyle = {
+  margin: 10,
+  display: 'flex',
+  justifyContent: 'space-between'
+}
+
 export const range = (startVal = 0, endVal = 0, increment = 0) => {
   let list = []
   if (increment <= 0) {
@@ -78,13 +84,7 @@ export const WatDatePicker = (props) => {
         prevMonthButtonDisabled,
         nextMonthButtonDisabled
       }) => (
-        <div
-          style={{
-            margin: 10,
-            display: 'flex',
-            justifyContent: 'space-between'
-          }}
-        >
+        <div style={headerStyle}>
           <button
             className='borderless'
             onClick={decreaseMonth}

@@ -7,6 +7,7 @@
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "link:../node_modules/react-scripts",
+    "style-loader": "^1.2.1",
     "thaidatepicker-react": "link:.."
   },
   "scripts": {

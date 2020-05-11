@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 import { WatDatePicker } from 'thaidatepicker-react'
 
 import styles from './App.module.css'
+import './OverrideCSS.css'
 
 const App = () => {
   const [selectedDate, setSelectedDate] = useState("2020-04-27")
