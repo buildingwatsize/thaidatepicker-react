@@ -12,6 +12,8 @@ Thaidatepicker-react is a component for ReactJS that likes other DatePicker, but
 - `maxDate` The maximum date that can be selected, possible value "2020-02-29", dayjs and also Moment.
 - `value` The default value, possible value "2020-02-29", dayjs and also Moment.
 - `onChange` The handler function, this function returns a couple of value (ChristDate, BuddhistDate)
+- `displayFormat` The value's display format on Input, possible value "DD [M, MM, MMM or MMMM] YYYY".
+- `clearable` To user clear the selected value, possible value true, false
 - `dateFormat` The format of value, possible value is "yyyy-MM-dd" please see more at [date-fns](https://date-fns.org/v2.12.0/docs/format)
 
 ## ⚙ Install
@@ -44,9 +46,11 @@ const App = () => {
       <WatDatePicker
         value={selectedDate}
         onChange={handleWatDatePickerChange}
-        dateFormat={"yyyy-MM-dd"} // [using date-fns format](https://date-fns.org/v2.12.0/docs/format)
-        minDate={"2020-04-26"} // supported date as string
-        maxDate={dayjs().add(20, "day")} // also supported dayjs or moment
+        dateFormat={'yyyy-MM-dd'} // [using date-fns format](https://date-fns.org/v2.12.0/docs/format)
+        displayFormat={'DD MMMM YYYY'} // or YYYY-MM-DD
+        clearable={true} // true | false
+        minDate={'2020-04-26'} // supported date as string
+        maxDate={dayjs().add(20, 'day')} // also supported dayjs or moment
       />
     </>
   )
