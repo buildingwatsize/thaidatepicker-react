@@ -6,8 +6,8 @@ import styles from './App.module.css'
 import './OverrideCSS.css'
 
 const App = () => {
-  const [selectedDate, setSelectedDate] = useState("2020-04-27")
-  const [selectedThaiDate, setSelectedThaiDate] = useState("2563-04-27")
+  const [selectedDate, setSelectedDate] = useState("2021-01-11")
+  const [selectedThaiDate, setSelectedThaiDate] = useState("2564-01-11")
 
   const handleWatDatePickerChange = (christDate, buddhistDate) => {
     console.log(christDate)
@@ -24,7 +24,10 @@ const App = () => {
         value={selectedDate}
         onChange={handleWatDatePickerChange}
         dateFormat={"yyyy-MM-dd"} // (using date-fns format)[https://date-fns.org/v2.12.0/docs/format]
-        minDate={"2020-04-26"} // supported date as string
+        displayFormat={"DD-MMMM-YYYY"}
+        inputStyle={{ width: '100%', padding: 5 }} // Style for input
+        clearable={true}
+        minDate={"2020-12-26"} // supported date as string
         maxDate={dayjs().add(20, "day")} // also supported dayjs or moment
       />
       <h2>Christ Date: <br />{selectedDate.toString()}</h2>
