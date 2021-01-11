@@ -1,6 +1,6 @@
 {
   "name": "thaidatepicker-react",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Thaidatepicker-react is a component for ReactJS that likes other DatePicker, but all we need is Buddhist Year (25XX – aka Thai Year) come with the right render day (example: Sat, 29 Feb 2020 must be equal to Sat, 29 Feb 2563) so I wish this component will be a useful thing to you :D. Happy Coding.",
   "author": "buildingwatsize",
   "license": "MIT",
@@ -29,37 +29,37 @@
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-config-standard-react": "^11.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.2.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "gh-pages": "^3.1.0",
     "microbundle-crl": "^0.13.8",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.1"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
-    "@testing-library/react": "^10.0.3",
+    "@testing-library/react": "^11.2.3",
     "antd": "^4.1.5",
     "date-fns": "^2.12.0",
     "dayjs": "^1.8.25",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "react-datepicker": "^2.14.1",
-    "react-test-renderer": "^16.13.1"
+    "react-datepicker": "^3.4.0",
+    "react-test-renderer": "^17.0.1"
   },
   "keywords": [
     "react",
