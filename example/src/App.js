@@ -6,8 +6,8 @@ import styles from './App.module.css'
 import './OverrideCSS.css'
 
 const App = () => {
-  const [selectedDate, setSelectedDate] = useState("2021-01-11")
-  const [selectedThaiDate, setSelectedThaiDate] = useState("2564-01-11")
+  const [selectedDate, setSelectedDate] = useState(null)
+  const [selectedThaiDate, setSelectedThaiDate] = useState(null)
 
   const handleWatDatePickerChange = (christDate, buddhistDate) => {
     console.log(christDate)
@@ -27,8 +27,14 @@ const App = () => {
         minDate={"2020-12-26"} // supported date as string
         maxDate={dayjs().add(20, "day")} // also supported dayjs or moment
       />
-      <h2>Christ Date: <br />{selectedDate.toString()}</h2>
-      <h2>Buddhist Date: <br />{selectedThaiDate.toString()}</h2>
+      <h2>
+        Christ Date: <br />
+        {selectedDate?.toString() ?? null}
+      </h2>
+      <h2>
+        Buddhist Date: <br />
+        {selectedThaiDate?.toString() ?? null}
+      </h2>
 
       <hr />
       <h3>Update - v0.1.3</h3>

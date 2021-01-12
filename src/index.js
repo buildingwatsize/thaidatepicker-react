@@ -78,10 +78,10 @@ export const range = (startVal = 0, endVal = 0, increment = 0) => {
 }
 
 export const WatDatePicker = (props) => {
-  const [value, setValue] = useState(
-    props.value ? props.value : dayjs().format('YYYY-MM-DD')
+  const [value, setValue] = useState(props.value ? props.value : null)
+  const [selectedDate, setSelectedDate] = useState(
+    value ? new Date(value) : null
   )
-  const [selectedDate, setSelectedDate] = useState(null)
   const thisYear = dayjs().year()
   const years = range(thisYear - 50, thisYear + 50, 1)
 
