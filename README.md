@@ -12,8 +12,9 @@ Thaidatepicker-react is a component for ReactJS that likes other DatePicker, but
 - `maxDate` The maximum date that can be selected, possible value "2020-02-29", dayjs and also Moment.
 - `value` The default value, possible value "2020-02-29", dayjs and also Moment.
 - `onChange` The handler function, this function returns a couple of value (ChristDate, BuddhistDate)
-- `displayFormat` The value's display format on Input, possible value "DD [M, MM, MMM or MMMM] YYYY".
-- `clearable` To user clear the selected value, possible value true, false
+- `displayFormat` The value's display format on Input, only display which not effected to the value, possible value is "ddd, DD MMMM YYYY" which is `dayjs formatting`. Note: Current is not supported "Localized formats" like "L LL LLL LLLL" or stuff. please see more at [dayjs](https://day.js.org/docs/en/display/format)
+- `clearable` The small button to allow user clear the selected value, possible value true, false
+- `inputStyle` The style customization.
 - `dateFormat` The format of value, possible value is "yyyy-MM-dd" please see more at [date-fns](https://date-fns.org/v2.12.0/docs/format)
 
 ## ⚙ Install
@@ -47,9 +48,10 @@ const App = () => {
         value={selectedDate}
         onChange={handleWatDatePickerChange}
         dateFormat={'yyyy-MM-dd'} // [using date-fns format](https://date-fns.org/v2.12.0/docs/format)
-        displayFormat={'DD MMMM YYYY'} // or YYYY-MM-DD
+        displayFormat={'dd, DD MMMM YY'} // (using dayjs format)[https://day.js.org/docs/en/display/format]
+        inputStyle={{ color: 'red' }} // styles for input
         clearable={true} // true | false
-        minDate={'2020-04-26'} // supported date as string
+        minDate={'2020-12-26'} // supported date as string
         maxDate={dayjs().add(20, 'day')} // also supported dayjs or moment
       />
     </>
@@ -75,3 +77,4 @@ MIT © [buildingwatsize](https://github.com/buildingwatsize)
 - [react-datepicker](https://reactdatepicker.com/)
 - [ant-design](https://ant.design/)
 - [dayjs](https://github.com/iamkun/dayjs)
+- [@patch-lee](https://github.com/patch-lee) – Contributor

@@ -9,6 +9,8 @@ import './styles.module.css'
 
 import dayjs from 'dayjs'
 import th from './locale/th'
+import 'dayjs/locale/th'
+dayjs.locale('th')
 
 registerLocale('th', th)
 setDefaultLocale('th')
@@ -28,48 +30,19 @@ const months = [
   'ธันวาคม'
 ]
 
-const shortMonths = [
-  'ม.ค.',
-  'ก.พ.',
-  'มี.ค.',
-  'เม.ย.',
-  'พ.ค.',
-  'มิ.ย.',
-  'ก.ค.',
-  'ส.ค.',
-  'ก.ย.',
-  'ต.ค.',
-  'พ.ย.',
-  'ธ.ค.'
-]
-
 const CustomInput = ({
   value,
   onClick,
   placeholderName,
   displayFormat,
-  style
+  style,
 }) => {
   let thaiDate = ''
   if (value !== '') {
-    thaiDate = displayFormat
     const date = dayjs(value)
-    const monthNo = date.month() // 0 - 11
     const thaiYear = date.year() + 543
-    const thaiMonth = months[monthNo]
-    const shortMonth = shortMonths[monthNo]
-    const monthDate = date.date()
-    const mCount = thaiDate.split('M').length - 1
-    const monthDisplay = [
-      monthNo + 1,
-      `${monthNo + 1 > 10 ? '' : 0}${monthNo + 1}`,
-      shortMonth,
-      thaiMonth
-    ]
-
-    thaiDate = thaiDate.replace(/[yY]+/, thaiYear)
-    thaiDate = thaiDate.replace('M'.repeat(mCount), monthDisplay[mCount - 1])
-    thaiDate = thaiDate.replace(/[dD]+/, monthDate)
+    const wrappedDisplayFormat = displayFormat ? displayFormat.replace(/YYYY/, thaiYear).replace(/YY/, thaiYear % 100) : null
+    thaiDate = (wrappedDisplayFormat && `${date.format(wrappedDisplayFormat)}`) || `${thaiYear}${date.format('-MM-DD')}`
   }
   return (
     <Input
@@ -105,10 +78,10 @@ export const range = (startVal = 0, endVal = 0, increment = 0) => {
 }
 
 export const WatDatePicker = (props) => {
-  const [value, setValue] = useState(
-    props.value ? props.value : dayjs().format('YYYY-MM-DD')
+  const [value, setValue] = useState(props.value ? props.value : null)
+  const [selectedDate, setSelectedDate] = useState(
+    value ? new Date(value) : null
   )
-  const [selectedDate, setSelectedDate] = useState(new Date(value))
   const thisYear = dayjs().year()
   const years = range(thisYear - 50, thisYear + 50, 1)
 
@@ -119,6 +92,7 @@ export const WatDatePicker = (props) => {
   ]
   return (
     <DatePicker
+      locale='th'
       renderCustomHeader={({
         date,
         changeYear,
@@ -178,13 +152,13 @@ export const WatDatePicker = (props) => {
       dateFormat={props.dateFormat ? props.dateFormat : 'yyyy-MM-dd'}
       selected={selectedDate}
       onChange={(date) => {
-        const value = dayjs(date).isValid() ? dayjs(date) : null
         setSelectedDate(date)
-        setValue(value ? value.format('YYYY-MM-DD') : '')
-        const thaiDate = value
-          ? `${value.year() + 543}${value.format('-MM-DD')}`
+        const dayjsObj = dayjs(date).isValid() ? dayjs(date) : null
+        setValue(dayjsObj ? dayjsObj.format('YYYY-MM-DD') : '')
+        const thaiDate = dayjsObj
+          ? `${dayjsObj.year() + 543}${dayjsObj.format('-MM-DD')}`
           : ''
-        props.onChange(value ? value.format('YYYY-MM-DD') : '', thaiDate)
+        props.onChange(dayjsObj ? dayjsObj.format('YYYY-MM-DD') : '', thaiDate)
       }}
       highlightDates={highlightWithRanges}
       customInput={
