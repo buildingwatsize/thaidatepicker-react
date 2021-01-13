@@ -83,7 +83,8 @@ export const WatDatePicker = (props) => {
     value ? new Date(value) : null
   )
   const thisYear = dayjs().year()
-  const years = range(thisYear - 50, thisYear + 50, 1)
+  const yearBoundary = props.yearBoundary ?? 50
+  const years = range(thisYear - yearBoundary, thisYear + yearBoundary, 1)
 
   const highlightWithRanges = [
     {
