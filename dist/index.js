@@ -11,6 +11,24 @@ require('react-datepicker/dist/react-datepicker.css');
 var dayjs = _interopDefault(require('dayjs'));
 require('dayjs/locale/th');
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
 var formatDistanceLocale = {
   lessThanXSeconds: {
     one: 'น้อยกว่า 1 วินาที',
@@ -555,7 +573,7 @@ var WatDatePicker = function WatDatePicker(props) {
   var highlightWithRanges = [{
     'react-datepicker__day--highlighted-today': [new Date()]
   }];
-  return /*#__PURE__*/React__default.createElement(DatePicker__default, {
+  return /*#__PURE__*/React__default.createElement(DatePicker__default, _extends({
     locale: "th",
     renderCustomHeader: function renderCustomHeader(_ref2) {
       var date = _ref2.date,
@@ -606,6 +624,7 @@ var WatDatePicker = function WatDatePicker(props) {
     maxDate: props.maxDate ? new Date(props.maxDate) : null,
     dateFormat: props.dateFormat ? props.dateFormat : 'yyyy-MM-dd',
     selected: selectedDate,
+    disabled: prop.disabled,
     onChange: function onChange(date) {
       setSelectedDate(date);
       var dayjsObj = dayjs(date).isValid() ? dayjs(date) : null;
@@ -619,7 +638,7 @@ var WatDatePicker = function WatDatePicker(props) {
       displayFormat: props.displayFormat,
       style: props.inputStyle
     })
-  });
+  }, props.datePickerProps));
 };
 
 exports.WatDatePicker = WatDatePicker;
