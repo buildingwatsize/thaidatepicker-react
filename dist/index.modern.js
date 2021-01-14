@@ -620,7 +620,7 @@ var WatDatePicker = function WatDatePicker(props) {
     maxDate: props.maxDate ? new Date(props.maxDate) : null,
     dateFormat: props.dateFormat ? props.dateFormat : 'yyyy-MM-dd',
     selected: selectedDate,
-    disabled: prop.disabled,
+    disabled: props.disabled,
     onChange: function onChange(date) {
       setSelectedDate(date);
       var dayjsObj = dayjs(date).isValid() ? dayjs(date) : null;
