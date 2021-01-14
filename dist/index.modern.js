@@ -615,7 +615,7 @@ var WatDatePicker = function WatDatePicker(props) {
         disabled: nextMonthButtonDisabled
       }, /*#__PURE__*/React.createElement(RightOutlined, null)));
     },
-    isClearable: props.clearable,
+    isClearable: props.disabled ? false : props.clearable,
     minDate: props.minDate ? new Date(props.minDate) : null,
     maxDate: props.maxDate ? new Date(props.maxDate) : null,
     dateFormat: props.dateFormat ? props.dateFormat : 'yyyy-MM-dd',

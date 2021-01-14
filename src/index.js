@@ -155,7 +155,7 @@ export const WatDatePicker = (props) => {
           </button>
         </div>
       )}
-      isClearable={props.clearable}
+      isClearable={props.disabled ? false : props.clearable}
       minDate={props.minDate ? new Date(props.minDate) : null}
       maxDate={props.maxDate ? new Date(props.maxDate) : null}
       dateFormat={props.dateFormat ? props.dateFormat : 'yyyy-MM-dd'}

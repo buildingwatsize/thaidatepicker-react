@@ -69,7 +69,6 @@ const App = () => {
       <div>
         Let them mixed
         <WatDatePicker
-          disabled={true}
           value={dayjs()}
           onChange={() => { }}
           displayFormat={"dd, DD MMMM YY"} // (using dayjs format)[https://day.js.org/docs/en/display/format]
