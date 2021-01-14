@@ -632,7 +632,8 @@ var WatDatePicker = function WatDatePicker(props) {
     customInput: /*#__PURE__*/React.createElement(CustomInputWrapper, {
       placeholderName: props.placeholder,
       displayFormat: props.displayFormat,
-      style: props.inputStyle
+      style: props.inputStyle,
+      value: selectedDate
     })
   }, props.datePickerProps));
 };

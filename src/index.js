@@ -176,6 +176,7 @@ export const WatDatePicker = (props) => {
           placeholderName={props.placeholder}
           displayFormat={props.displayFormat}
           style={props.inputStyle}
+          value={selectedDate}
         />
       }
       {...props.datePickerProps}
