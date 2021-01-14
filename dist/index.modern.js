@@ -517,11 +517,6 @@ var CustomInput = function CustomInput(_ref) {
   });
 };
 
-var CustomInputWrapper = React.forwardRef(function (props, ref) {
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref
-  }, /*#__PURE__*/React.createElement(CustomInput, props));
-});
 var headerStyle = {
   margin: 10,
   display: 'flex',
@@ -629,7 +624,7 @@ var WatDatePicker = function WatDatePicker(props) {
       props.onChange(dayjsObj ? dayjsObj.format('YYYY-MM-DD') : '', thaiDate);
     },
     highlightDates: highlightWithRanges,
-    customInput: /*#__PURE__*/React.createElement(CustomInputWrapper, {
+    customInput: /*#__PURE__*/React.createElement(CustomInput, {
       placeholderName: props.placeholder,
       displayFormat: props.displayFormat,
       style: props.inputStyle,

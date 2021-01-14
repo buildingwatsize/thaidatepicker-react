@@ -58,11 +58,11 @@ const CustomInput = ({
   )
 }
 
-const CustomInputWrapper = React.forwardRef((props, ref) => (
-  <div ref={ref}>
-    <CustomInput {...props} />
-  </div>
-))
+// const CustomInputWrapper = React.forwardRef((props, ref) => (
+//   <div ref={ref}>
+//     <CustomInput {...props} />
+//   </div>
+// ))
 
 const headerStyle = {
   margin: 10,
@@ -172,7 +172,7 @@ export const WatDatePicker = (props) => {
       }}
       highlightDates={highlightWithRanges}
       customInput={
-        <CustomInputWrapper
+        <CustomInput
           placeholderName={props.placeholder}
           displayFormat={props.displayFormat}
           style={props.inputStyle}

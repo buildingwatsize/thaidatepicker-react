@@ -6,8 +6,8 @@ import styles from './App.module.css'
 import './OverrideCSS.css'
 
 const App = () => {
-  const [selectedDate, setSelectedDate] = useState('2020-01-10')
-  const [selectedThaiDate, setSelectedThaiDate] = useState(null)
+  const [selectedDate, setSelectedDate] = useState(new Date())
+  const [selectedThaiDate, setSelectedThaiDate] = useState(new Date())
 
   const handleWatDatePickerChange = (christDate, buddhistDate) => {
     console.log(christDate)
@@ -60,7 +60,7 @@ const App = () => {
       <div>
         - Supported Input Clearable Button
         <WatDatePicker
-          // value={selectedDate}
+          value={'2021-01-12'}
           onChange={() => { }}
           clearable={true} // supported clearable button
         />
@@ -69,7 +69,7 @@ const App = () => {
       <div>
         Let them mixed
         <WatDatePicker
-          // value={selectedDate}
+          value={dayjs()}
           onChange={() => { }}
           displayFormat={"dd, DD MMMM YY"} // (using dayjs format)[https://day.js.org/docs/en/display/format]
           inputStyle={{ color: "red" }} // style for input
