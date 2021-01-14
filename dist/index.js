@@ -503,7 +503,8 @@ var CustomInput = React__default.forwardRef(function (_ref, ref) {
       onClick = _ref.onClick,
       placeholderName = _ref.placeholderName,
       displayFormat = _ref.displayFormat,
-      style = _ref.style;
+      style = _ref.style,
+      disabled = _ref.disabled;
   var thaiDate = '';
 
   if (value !== '') {
@@ -518,7 +519,8 @@ var CustomInput = React__default.forwardRef(function (_ref, ref) {
     value: thaiDate,
     onClick: onClick,
     placeholder: placeholderName,
-    style: style
+    style: style,
+    disabled: disabled
   });
 });
 var headerStyle = {
@@ -635,7 +637,8 @@ var WatDatePicker = function WatDatePicker(props) {
       placeholderName: props.placeholder,
       displayFormat: props.displayFormat,
       style: props.inputStyle,
-      value: selectedDate
+      value: selectedDate,
+      disabled: props.disabled
     })
   }, props.datePickerProps));
 };

@@ -31,7 +31,7 @@ const months = [
 ]
 
 const CustomInput = React.forwardRef(
-  ({ value, onClick, placeholderName, displayFormat, style }, ref) => {
+  ({ value, onClick, placeholderName, displayFormat, style, disabled }, ref) => {
     let thaiDate = ''
     if (value !== '') {
       const date = dayjs(value)
@@ -50,6 +50,7 @@ const CustomInput = React.forwardRef(
         onClick={onClick}
         placeholder={placeholderName}
         style={style}
+        disabled={disabled}
       />
     )
   }
@@ -175,6 +176,7 @@ export const WatDatePicker = (props) => {
           displayFormat={props.displayFormat}
           style={props.inputStyle}
           value={selectedDate}
+          disabled={props.disabled}
         />
       }
       {...props.datePickerProps}
