@@ -152,6 +152,7 @@ export const WatDatePicker = (props) => {
       maxDate={props.maxDate ? new Date(props.maxDate) : null}
       dateFormat={props.dateFormat ? props.dateFormat : 'yyyy-MM-dd'}
       selected={selectedDate}
+      disabled={prop.disabled}
       onChange={(date) => {
         setSelectedDate(date)
         const dayjsObj = dayjs(date).isValid() ? dayjs(date) : null
@@ -169,6 +170,7 @@ export const WatDatePicker = (props) => {
           style={props.inputStyle}
         />
       }
+      {...props.datePickerProps}
     />
   )
 }
