@@ -4,7 +4,7 @@ import { Input } from 'antd';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import 'react-datepicker/dist/react-datepicker.css';
-import dayjs from 'dayjs';
+import dayjs, { isDayjs } from 'dayjs';
 import 'dayjs/locale/th';
 
 function _extends() {
@@ -559,7 +559,7 @@ var WatDatePicker = function WatDatePicker(props) {
       value = _useState[0],
       setValue = _useState[1];
 
-  var _useState2 = useState(value ? new Date(value) : null),
+  var _useState2 = useState(value ? isDayjs(value) ? new Date(value.format('YYYY-MM-DD')) : new Date(value) : null),
       selectedDate = _useState2[0],
       setSelectedDate = _useState2[1];
 

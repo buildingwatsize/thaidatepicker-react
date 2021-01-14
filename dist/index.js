@@ -8,7 +8,8 @@ var antd = require('antd');
 var LeftOutlined = _interopDefault(require('@ant-design/icons/LeftOutlined'));
 var RightOutlined = _interopDefault(require('@ant-design/icons/RightOutlined'));
 require('react-datepicker/dist/react-datepicker.css');
-var dayjs = _interopDefault(require('dayjs'));
+var dayjs = require('dayjs');
+var dayjs__default = _interopDefault(dayjs);
 require('dayjs/locale/th');
 
 function _extends() {
@@ -493,7 +494,7 @@ var locale = {
   }
 };
 
-dayjs.locale('th');
+dayjs__default.locale('th');
 DatePicker.registerLocale('th', locale);
 DatePicker.setDefaultLocale('th');
 var months = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
@@ -507,7 +508,7 @@ var CustomInput = function CustomInput(_ref) {
   var thaiDate = '';
 
   if (value !== '') {
-    var date = dayjs(value);
+    var date = dayjs__default(value);
     var thaiYear = date.year() + 543;
     var wrappedDisplayFormat = displayFormat ? displayFormat.replace(/YYYY/, thaiYear).replace(/YY/, thaiYear % 100) : null;
     thaiDate = wrappedDisplayFormat && "" + date.format(wrappedDisplayFormat) || "" + thaiYear + date.format('-MM-DD');
@@ -563,11 +564,11 @@ var WatDatePicker = function WatDatePicker(props) {
       value = _useState[0],
       setValue = _useState[1];
 
-  var _useState2 = React.useState(value ? new Date(value) : null),
+  var _useState2 = React.useState(value ? dayjs.isDayjs(value) ? new Date(value.format('YYYY-MM-DD')) : new Date(value) : null),
       selectedDate = _useState2[0],
       setSelectedDate = _useState2[1];
 
-  var thisYear = dayjs().year();
+  var thisYear = dayjs__default().year();
   var yearBoundary = (_props$yearBoundary = props.yearBoundary) != null ? _props$yearBoundary : 50;
   var years = range(thisYear - yearBoundary, thisYear + yearBoundary, 1);
   var highlightWithRanges = [{
@@ -591,7 +592,7 @@ var WatDatePicker = function WatDatePicker(props) {
         disabled: prevMonthButtonDisabled
       }, /*#__PURE__*/React__default.createElement(LeftOutlined, null)), /*#__PURE__*/React__default.createElement("select", {
         className: "borderless",
-        value: months[dayjs(date).month()],
+        value: months[dayjs__default(date).month()],
         onChange: function onChange(_ref3) {
           var value = _ref3.target.value;
           return changeMonth(months.indexOf(value));
@@ -603,7 +604,7 @@ var WatDatePicker = function WatDatePicker(props) {
         }, option);
       })), /*#__PURE__*/React__default.createElement("select", {
         className: "borderless",
-        value: dayjs(date).year(),
+        value: dayjs__default(date).year(),
         onChange: function onChange(_ref4) {
           var value = _ref4.target.value;
           return changeYear(value);
@@ -627,7 +628,7 @@ var WatDatePicker = function WatDatePicker(props) {
     disabled: props.disabled,
     onChange: function onChange(date) {
       setSelectedDate(date);
-      var dayjsObj = dayjs(date).isValid() ? dayjs(date) : null;
+      var dayjsObj = dayjs__default(date).isValid() ? dayjs__default(date) : null;
       setValue(dayjsObj ? dayjsObj.format('YYYY-MM-DD') : '');
       var thaiDate = dayjsObj ? "" + (dayjsObj.year() + 543) + dayjsObj.format('-MM-DD') : '';
       props.onChange(dayjsObj ? dayjsObj.format('YYYY-MM-DD') : '', thaiDate);

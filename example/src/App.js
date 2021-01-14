@@ -6,7 +6,7 @@ import styles from './App.module.css'
 import './OverrideCSS.css'
 
 const App = () => {
-  const [selectedDate, setSelectedDate] = useState(null)
+  const [selectedDate, setSelectedDate] = useState('2020-01-10')
   const [selectedThaiDate, setSelectedThaiDate] = useState(null)
 
   const handleWatDatePickerChange = (christDate, buddhistDate) => {

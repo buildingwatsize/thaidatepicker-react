@@ -7,7 +7,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined'
 import 'react-datepicker/dist/react-datepicker.css'
 import './styles.module.css'
 
-import dayjs from 'dayjs'
+import dayjs, { isDayjs } from 'dayjs'
 import th from './locale/th'
 import 'dayjs/locale/th'
 dayjs.locale('th')
@@ -35,14 +35,18 @@ const CustomInput = ({
   onClick,
   placeholderName,
   displayFormat,
-  style,
+  style
 }) => {
   let thaiDate = ''
   if (value !== '') {
     const date = dayjs(value)
     const thaiYear = date.year() + 543
-    const wrappedDisplayFormat = displayFormat ? displayFormat.replace(/YYYY/, thaiYear).replace(/YY/, thaiYear % 100) : null
-    thaiDate = (wrappedDisplayFormat && `${date.format(wrappedDisplayFormat)}`) || `${thaiYear}${date.format('-MM-DD')}`
+    const wrappedDisplayFormat = displayFormat
+      ? displayFormat.replace(/YYYY/, thaiYear).replace(/YY/, thaiYear % 100)
+      : null
+    thaiDate =
+      (wrappedDisplayFormat && `${date.format(wrappedDisplayFormat)}`) ||
+      `${thaiYear}${date.format('-MM-DD')}`
   }
   return (
     <Input
@@ -80,7 +84,11 @@ export const range = (startVal = 0, endVal = 0, increment = 0) => {
 export const WatDatePicker = (props) => {
   const [value, setValue] = useState(props.value ? props.value : null)
   const [selectedDate, setSelectedDate] = useState(
-    value ? new Date(value) : null
+    value
+      ? isDayjs(value)
+        ? new Date(value.format('YYYY-MM-DD'))
+        : new Date(value)
+      : null
   )
   const thisYear = dayjs().year()
   const yearBoundary = props.yearBoundary ?? 50
