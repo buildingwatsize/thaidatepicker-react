@@ -35,6 +35,8 @@ const CustomInput = ({
   onClick,
   placeholderName,
   displayFormat,
+  disabled,
+  readOnly,
   style,
 }) => {
   let thaiDate = ''
@@ -50,6 +52,8 @@ const CustomInput = ({
       onClick={onClick}
       placeholder={placeholderName}
       style={style}
+      disabled={disabled}
+      readOnly={readOnly}
     />
   )
 }
@@ -71,19 +75,21 @@ export const range = (startVal = 0, endVal = 0, increment = 0) => {
   if (increment <= 0) {
     return list
   }
-  for (let index = startVal; index < endVal; index = index + increment) {
+  for (let index = startVal; index <= endVal; index = index + increment) {
     list = [...list, index]
   }
   return list
 }
 
 export const WatDatePicker = (props) => {
-  const [value, setValue] = useState(
-    props.value ? props.value : dayjs().format('YYYY-MM-DD')
-  )
-  const [selectedDate, setSelectedDate] = useState(new Date(value))
+  const [value, setValue] = useState(props.value ? props.value : null)
+  const [selectedDate, setSelectedDate] = useState(value ? new Date(value) : null)
+
+  const yearBoundary = props.yearBoundary ?? 99
   const thisYear = dayjs().year()
-  const years = range(thisYear - 50, thisYear + 50, 1)
+  const minYear = props.minDate ? dayjs(props.minDate).year() : thisYear - yearBoundary
+  const maxYear = props.maxDate ? dayjs(props.maxDate).year() : thisYear + yearBoundary
+  const years = range(minYear, maxYear, 1)
 
   const highlightWithRanges = [
     {
@@ -146,11 +152,13 @@ export const WatDatePicker = (props) => {
           </button>
         </div>
       )}
-      isClearable={props.clearable}
       minDate={props.minDate ? new Date(props.minDate) : null}
       maxDate={props.maxDate ? new Date(props.maxDate) : null}
       dateFormat={props.dateFormat ? props.dateFormat : 'yyyy-MM-dd'}
       selected={selectedDate}
+      isClearable={!(props.disabled || props.readOnly) && (props.clearable ?? true)}
+      disabled={props.disabled}
+      readOnly={props.readOnly}
       onChange={(date) => {
         setSelectedDate(date)
         const dayjsObj = dayjs(date).isValid() ? dayjs(date) : null
@@ -168,6 +176,7 @@ export const WatDatePicker = (props) => {
           style={props.inputStyle}
         />
       }
+      {...props.reactDatePickerProps}
     />
   )
 }
