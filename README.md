@@ -45,14 +45,17 @@ const App = () => {
   return (
     <>
       <WatDatePicker
-        value={selectedDate}
+        value={selectedDate} // Can be replace with string or dayjs object (e.g. "2020-12-31" or `dayjs()`)
         onChange={handleWatDatePickerChange}
-        dateFormat={'yyyy-MM-dd'} // [using date-fns format](https://date-fns.org/v2.12.0/docs/format)
-        displayFormat={'dd, DD MMMM YY'} // (using dayjs format)[https://day.js.org/docs/en/display/format]
+        dateFormat={'yyyy-MM-dd'} // for set data purpose [using date-fns format](https://date-fns.org/v2.12.0/docs/format)
+        displayFormat={'dd, DD MMMM YY'} // for display purpose (using dayjs format)[https://day.js.org/docs/en/display/format]
         inputStyle={{ color: 'red' }} // styles for input
         clearable={true} // true | false
         minDate={'2020-12-26'} // supported date as string
         maxDate={dayjs().add(20, 'day')} // also supported dayjs or moment
+        disabled={false} // true | false
+        readOnly={false} // true | false
+        yearBoundary={99} // number of boundary ±X Year
       />
     </>
   )
