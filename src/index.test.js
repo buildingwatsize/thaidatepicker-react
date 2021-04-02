@@ -10,7 +10,7 @@ describe('WatDatePicker', () => {
   it('WatDatePicker is truthy', () => {
     expect(WatDatePicker).toBeTruthy()
   })
-  it('Render match snapshot 11111', () => {
+  it('Render match snapshot', () => {
     const handleWatDatePickerChange = (christDate, buddhistDate) => {
       console.log(christDate, buddhistDate)
     }
