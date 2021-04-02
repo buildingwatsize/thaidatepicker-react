@@ -111,6 +111,7 @@ export const WatDatePicker = (props) => {
         <div style={headerStyle}>
           <button
             className='borderless'
+            type="button"
             onClick={decreaseMonth}
             disabled={prevMonthButtonDisabled}
           >
@@ -145,6 +146,7 @@ export const WatDatePicker = (props) => {
 
           <button
             className='borderless'
+            type="button"
             onClick={increaseMonth}
             disabled={nextMonthButtonDisabled}
           >

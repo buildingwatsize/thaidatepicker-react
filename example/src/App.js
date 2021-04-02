@@ -30,6 +30,20 @@ const App = () => {
       <h2>Christ Date: <br />{selectedDate.toString()}</h2>
       <h2>Buddhist Date: <br />{selectedThaiDate.toString()}</h2>
 
+      <br />
+      <hr />
+      <h3>Update - v0.1.5</h3>
+      <div>
+        - Updated Dependencies
+      </div>
+      <div>
+        - Fixed bug "Form Submit" after click prev/next month button
+        <form onSubmit={() => { console.log("This will not show.") }}>
+          <WatDatePicker onChange={() => { }} />
+        </form>
+        (see more in source code, it will not trigger form submit function)
+      </div>
+
       <hr />
       <h3>Update - v0.1.4</h3>
       <div>
