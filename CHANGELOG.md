@@ -1,6 +1,6 @@
 # CHANGELOG.MD
 
-## [v0.2.1] - `2022-04-29`[Wat]
+## [v0.2.1] - `2022-04-29`
 
 - [Removed] some dependency which not used anymore
 - [Edited] Example page for update latest version
