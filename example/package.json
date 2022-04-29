@@ -3,6 +3,7 @@
   "homepage": "https://buildingwatsize.github.io/thaidatepicker-react",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",

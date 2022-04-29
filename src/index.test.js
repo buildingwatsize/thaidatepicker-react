@@ -14,17 +14,19 @@ describe('WatDatePicker', () => {
     const handleWatDatePickerChange = (christDate, buddhistDate) => {
       console.log(christDate, buddhistDate)
     }
-    const tree = renderer.create(
-      <WatDatePicker
-        value='2020-02-29'
-        disabled={false}
-        readonly={true}
-        onChange={handleWatDatePickerChange}
-        dateFormat='yyyy-MM-dd'
-        minDate='2020-01-29'
-        maxDate='2020-03-29'
-      />
-    ).toJSON()
+    const tree = renderer
+      .create(
+        <WatDatePicker
+          value='2020-02-29'
+          disabled={false}
+          readonly={true}
+          onChange={handleWatDatePickerChange}
+          dateFormat='yyyy-MM-dd'
+          minDate='2020-01-29'
+          maxDate='2020-03-29'
+        />
+      )
+      .toJSON()
     expect(tree).toMatchSnapshot()
   })
   it('Right rendering in Deep Children Value', () => {

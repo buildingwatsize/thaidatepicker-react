@@ -16,6 +16,8 @@ Thaidatepicker-react is a component for ReactJS that likes other DatePicker, but
 - `clearable` The small button to allow user clear the selected value, possible value true, false
 - `inputStyle` The style customization.
 - `dateFormat` The format of value, possible value is "yyyy-MM-dd" please see more at [date-fns](https://date-fns.org/v2.12.0/docs/format)
+- `inputProps` Customizable an input component properties
+- `reactDatePickerProps` Customizable a react-datepicker properties
 
 ## ⚙ Install
 
