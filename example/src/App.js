@@ -32,6 +32,18 @@ const App = () => {
 
       <br />
       <hr />
+      <h3>Update - v0.2.1</h3>
+      <div>
+        - Updated Dependencies
+      </div>
+
+      <hr />
+      <h3>Update - v0.2.0</h3>
+      <div>
+        - Updated Dependencies
+      </div>
+
+      <hr />
       <h3>Update - v0.1.5</h3>
       <div>
         - Updated Dependencies

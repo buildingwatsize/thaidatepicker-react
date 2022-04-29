@@ -1,5 +1,10 @@
 # CHANGELOG.MD
 
+## [v0.2.1] - `2022-04-29`[Wat]
+
+- [Removed] some dependency which not used anymore
+- [Edited] Example page for update latest version
+
 ## [v0.2.0] - `2022-04-29`
 
 - [Updated] Dependencies (Note: Upgrade major version of `React@18.1.0` and `react-datepicker`)
@@ -44,6 +49,7 @@
 
 - Initialized Project
 
+[v0.2.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.0
 [v0.1.5]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.1.5
 [v0.1.4]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.1.4
