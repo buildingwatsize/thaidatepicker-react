@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import { Input } from 'antd'
 import LeftOutlined from '@ant-design/icons/LeftOutlined'
@@ -93,7 +93,11 @@ export const WatDatePicker = (props) => {
   const [selectedDate, setSelectedDate] = useState(
     value ? new Date(value) : null
   )
-
+  
+  useEffect(() => {
+    setSelectedDate(props.value ? new Date(props.value) : null)
+  }, [props.value])
+  
   const yearBoundary = props.yearBoundary ?? 99
   const thisYear = dayjs().year()
   const minYear = props.minDate

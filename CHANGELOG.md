@@ -1,5 +1,10 @@
 # CHANGELOG.MD
 
+## [v0.2.2] - `2022-06-16`
+
+- [Fixed] When the value of props.value changes, the state will no longer be updated.
+- [Updated] Dependencies
+
 ## [v0.2.1] - `2022-04-29`
 
 - [Removed] some dependency which not used anymore

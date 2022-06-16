@@ -31,6 +31,14 @@ const App = () => {
       <h2>Buddhist Date: <br />{selectedThaiDate.toString()}</h2>
 
       <br />
+
+      <hr />
+      <h3>Update - v0.2.2</h3>
+      <div>
+        - Updated Dependencies
+        - Fixed Bugs
+      </div>
+
       <hr />
       <h3>Update - v0.2.1</h3>
       <div>
