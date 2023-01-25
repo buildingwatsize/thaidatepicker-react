@@ -1,4 +1,33 @@
-# CHANGELOG.MD
+# Changelog
+
+## 🎉 Release - v1 🎉
+
+## [v1.0.0] - `2023-01-25`
+
+### Added
+
+- some devDependencies like mockdate for ease to develop
+- supporting es import and be standalone without css
+- example for this new release
+
+### Edited
+
+- code structure as component separated
+- package.json scripts
+- replace enzyme testing with react testing library
+
+### Updated
+
+- dependencies and react@18.2
+
+### Removed
+
+- eslint for reducing project complexity (using vscode extension instead)
+- antd, @ant-design/icons for reduce package size (customization available)
+
+---
+
+## Legacy Version - v0.x.x
 
 ## [v0.2.2] - `2022-06-16`
 
@@ -54,6 +83,8 @@
 
 - Initialized Project
 
+[v1.0.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.0
+[v0.2.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.2
 [v0.2.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.0
 [v0.1.5]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.1.5
