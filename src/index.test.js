@@ -1,100 +1,103 @@
-import React from 'react'
-import { WatDatePicker, range } from '.'
-import renderer from 'react-test-renderer'
+import { fireEvent, render, screen } from "@testing-library/react";
+import { ThaiDatePicker } from ".";
 
-import { configure, shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-configure({ adapter: new Adapter() })
-
-describe('WatDatePicker', () => {
-  it('WatDatePicker is truthy', () => {
-    expect(WatDatePicker).toBeTruthy()
-  })
-  it('Render match snapshot', () => {
-    const handleWatDatePickerChange = (christDate, buddhistDate) => {
-      console.log(christDate, buddhistDate)
-    }
-    const tree = renderer
-      .create(
-        <WatDatePicker
-          value='2020-02-29'
-          disabled={false}
-          readonly={true}
-          onChange={handleWatDatePickerChange}
-          dateFormat='yyyy-MM-dd'
-          minDate='2020-01-29'
-          maxDate='2020-03-29'
-        />
-      )
-      .toJSON()
-    expect(tree).toMatchSnapshot()
-  })
-  it('Right rendering in Deep Children Value', () => {
-    const WatDatePickerInstance = shallow(
-      <WatDatePicker
-        value='2020-02-29'
-        dateFormat='yyyy-MM-dd'
-        minDate='2020-01-29'
-        maxDate='2020-03-29'
+describe("ThaiDatePicker", () => {
+  test("should be truthy", () => {
+    expect(ThaiDatePicker).toBeTruthy();
+  });
+  test("should be visible", () => {
+    let view = render(<ThaiDatePicker />);
+    expect(view).not.toBeNull();
+  });
+  test("should be render with input inside", () => {
+    render(<ThaiDatePicker />);
+    const inputElement = screen.queryByTestId("thdpk-input");
+    expect(inputElement).toBeInTheDocument();
+  });
+  test("should be render with minDate, maxDate props", () => {
+    render(<ThaiDatePicker minDate={new Date()} maxDate={new Date()} />);
+    const inputElement = screen.queryByTestId("thdpk-input");
+    expect(inputElement).toBeInTheDocument();
+  });
+  test("should have value as ThaiDate format", () => {
+    [
+      {
+        christDateInput: "1980-08-11",
+        thaiDateOutput: "2523-08-11",
+      },
+      {
+        christDateInput: "2030-12-31",
+        thaiDateOutput: "2573-12-31",
+      },
+      {
+        christDateInput: "2525-01-31",
+        thaiDateOutput: "3068-01-31",
+      },
+      {
+        christDateInput: "",
+        thaiDateOutput: "",
+      },
+    ].forEach((tc) => {
+      const { unmount } = render(<ThaiDatePicker value={tc.christDateInput} />);
+      const inputElement = screen.queryByTestId("thdpk-input");
+      expect(inputElement.value).toBe(tc.thaiDateOutput);
+      unmount();
+    });
+  });
+  test("should be have value showing format as inputProps.displayFormat (DD MM YYYY)", () => {
+    render(
+      <ThaiDatePicker
+        value={"2023-01-31"}
+        inputProps={{ displayFormat: "DD MM YYYY" }}
       />
-    )
-    expect(WatDatePickerInstance.props().selected).toStrictEqual(
-      new Date('2020-02-29')
-    )
-    expect(WatDatePickerInstance.props().minDate).toStrictEqual(
-      new Date('2020-01-29')
-    )
-    expect(WatDatePickerInstance.props().maxDate).toStrictEqual(
-      new Date('2020-03-29')
-    )
-    expect(WatDatePickerInstance.props().dateFormat).toStrictEqual('yyyy-MM-dd')
-  })
-  it('Value is editable', () => {
-    const handleWatDatePickerChange = (christDate, buddhistDate) => {
-      console.log(christDate, buddhistDate)
-    }
-    const WatDatePickerInstance = shallow(
-      <WatDatePicker
-        value='2020-02-29'
-        onChange={handleWatDatePickerChange}
-        dateFormat='yyyy-MM-dd'
-        minDate='2020-01-29'
-        maxDate='2020-03-29'
+    );
+    const inputElement = screen.queryByTestId("thdpk-input");
+    expect(inputElement.value).toBe("31 01 2566");
+  });
+  test("should be have value showing format as inputProps.displayFormat (DD M YY)", () => {
+    render(
+      <ThaiDatePicker
+        value={"2000-01-02"}
+        inputProps={{ displayFormat: "DD M YY" }}
       />
-    )
-    WatDatePickerInstance.simulate('change', new Date('2020-03-31'))
-    expect(WatDatePickerInstance.props().selected).toStrictEqual(
-      new Date('2020-03-31')
-    )
-    console.log(WatDatePickerInstance.props())
-  })
-})
+    );
+    const inputElement = screen.queryByTestId("thdpk-input");
+    expect(inputElement.value).toBe("02 1 43");
+  });
+  test("should be changeable value", () => {
+    const mockOnChange = jest.fn();
+    render(<ThaiDatePicker onChange={mockOnChange} />);
+    const inputElement = screen.queryByTestId("thdpk-input");
 
-describe('range', () => {
-  it('range(2020, 2050, 10) is right return value must be [2020, 2030, 2040]', () => {
-    expect(range(2020, 2050, 10)).toStrictEqual([2020, 2030, 2040, 2050])
-  })
-  it('range(2020, 2020, 10) is right return value must be []', () => {
-    expect(range(2020, 2020, 10)).toStrictEqual([2020])
-  })
-  it('range(2020, 2010, 1) is wrong return value must be []', () => {
-    expect(range(2020, 2010, 1)).toStrictEqual([])
-  })
-  it('range(2020, 2025, 0) is wrong return value must be []', () => {
-    expect(range(2020, 2025, 0)).toStrictEqual([])
-  })
-  it('range(2020, 2025, -1) is wrong return value must be []', () => {
-    expect(range(2020, 2025, -1)).toStrictEqual([])
-  })
-  it('range(2020, "justString", 1) is wrong return value must be []', () => {
-    expect(range(2020, 'justString', 1)).toStrictEqual([])
-  })
-  it('range("justString", 2020, 1) is wrong return value must be []', () => {
-    expect(range('justString', 2020, 1)).toStrictEqual([])
-  })
-  it('range() invalid params is wrong return value must be []', () => {
-    expect(range()).toStrictEqual([])
-    expect(range(2020)).toStrictEqual([])
-    expect(range(2020, 2030)).toStrictEqual([])
-  })
-})
+    fireEvent.change(inputElement, { target: { value: "2023-12-31" } });
+    expect(mockOnChange).toHaveBeenCalledTimes(1);
+    expect(mockOnChange).toHaveBeenCalledWith("2023-12-31", "2566-12-31");
+
+    fireEvent.change(inputElement, { target: { value: "" } });
+    expect(mockOnChange).toHaveBeenCalledTimes(2);
+    expect(mockOnChange).toHaveBeenCalledWith("", "");
+  });
+  test("should be have customize an input", () => {
+    let interceptInputValue = "";
+    const fakeInput = (props) => {
+      interceptInputValue = props.value;
+      return <input {...props} />;
+    };
+    render(<ThaiDatePicker value={"2023-01-31"} customInput={fakeInput} />);
+    const inputElement = screen.queryByTestId("thdpk-input");
+    expect(inputElement.value).toBe("2566-01-31");
+
+    expect(interceptInputValue).toBe(inputElement.value);
+  });
+});
+
+// describe("WatDatePicker (Legacy name compatibility)", () => {
+//   test("WatDatePicker to be truthy", () => {
+//     expect(WatDatePicker).toBeTruthy();
+//   });
+//   test("WatDatePicker can be render with input inside", () => {
+//     render(<WatDatePicker />);
+//     const inputElement = screen.queryByTestId("thdpk-input");
+//     expect(inputElement).toBeInTheDocument();
+//   });
+// });

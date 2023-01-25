@@ -1,0 +1,31 @@
+{
+  "name": "with-vite-antd-tailwind",
+  "homepage": "https://buildingwatsize.github.io/thaidatepicker-react",
+  "private": true,
+  "license": "MIT",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:uat": "vite build --mode staging",
+    "build:publish": "cp -f .env.example .env && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.0",
+    "antd": "^5.1.5",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "react": "link:../../node_modules/react",
+    "react-dom": "link:../../node_modules/react-dom",
+    "tailwindcss": "^3.2.4",
+    "thaidatepicker-react": "link:../.."
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.0.1",
+    "vite": "^4.0.4"
+  }
+}
