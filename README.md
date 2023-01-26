@@ -76,9 +76,11 @@ export default App;
 
 ## 📝 Need More Example?
 
-I created a few demo of difference stack. try to check it out on [./example](./example)
+I created a few demo of difference stack. try to check it out on [./example](./example) which contains both "custom-react-app" and "vite" ecosystem.
 
-- Online Demo: [Demo](https://buildingwatsize.github.io/thaidatepicker-react)
+- Document with Online Demo: [Demo](https://thaidatepicker-react-demo.vercel.app)
+- or alternate example link: [CodeSandbox](https://codesandbox.io/s/thaidatepicker-react-demo-basic-1m33mx?file=/src/App.js)
+- Bonus with NextJS: [CodeSandbox](https://codesandbox.io/s/thaidatepicker-react-nextjs-demo-euw5lt?file=/pages/index.js)
 
 ## Changelog
 
