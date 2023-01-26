@@ -18,8 +18,8 @@
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test-coverage": "cross-env CI=1 react-scripts test --env=jsdom --coverage",
     "clean": "rm -rf ./dist/* ./example/with-vite-antd-tailwind/dist/*",
-    "predeploy": "yarn run build && cd ./example/with-vite-antd-tailwind && yarn run build",
-    "deploy": "gh-pages -d ./example/with-vite-antd-tailwind/dist"
+    "initial": "yarn install && cd ./example/with-vite-antd-tailwind && yarn install",
+    "predeploy": "yarn run build && cd ./example/with-vite-antd-tailwind && yarn run build"
   },
   "peerDependencies": {
     "react": "^18.2.0"
@@ -28,7 +28,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "cross-env": "^7.0.2",
-    "gh-pages": "^5.0.0",
     "microbundle": "^0.15.1",
     "mockdate": "^3.0.5",
     "react": "^18.2.0",
