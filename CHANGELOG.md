@@ -2,7 +2,7 @@
 
 ## 🎉 Release - v1 🎉
 
-## [v1.0.0] - `2023-01-25`
+## [v1.0.2] - `2023-01-26`
 
 ### Added
 
@@ -24,6 +24,10 @@
 
 - eslint for reducing project complexity (using vscode extension instead)
 - antd, @ant-design/icons for reduce package size (customization available)
+
+## [v1.0.0...v1.0.1] - `2023-01-25`
+
+I have to skipping for the old versions which was unpublished once on first created.
 
 ---
 
@@ -83,7 +87,7 @@
 
 - Initialized Project
 
-[v1.0.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.0
+[v1.0.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.2
 [v0.2.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.2
 [v0.2.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.0

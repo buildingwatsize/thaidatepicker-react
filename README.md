@@ -4,7 +4,7 @@
 
 ---
 
-## 🎉 RELEASE v1 - 2023-01-25 🎉
+## 🎉 RELEASE v1.x.x 🎉
 
 I just have my free time to develop and update the old library like this one. For everyone which waiting for an update. I have a good news to tell you about this library. It's standalone. I mean it can be import without any `css` files and also working with SSR like `nextJS`, which seriously about external css import. I hope this library will be useful for all you guy. Thanks.
 
