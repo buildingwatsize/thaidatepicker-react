@@ -80,7 +80,7 @@ I created a few demo of difference stack. try to check it out on [./example](./e
 
 - Document with Online Demo: [Demo](https://thaidatepicker-react-demo.vercel.app)
 - or alternate example link: [CodeSandbox](https://codesandbox.io/s/thaidatepicker-react-demo-basic-1m33mx?file=/src/App.js)
-- Bonus with NextJS: [CodeSandbox](https://codesandbox.io/s/thaidatepicker-react-nextjs-demo-euw5lt?file=/pages/index.js)
+- Bonus with NextJS: [CodeSandbox](https://codesandbox.io/s/thaidatepicker-react-demo-nextjs-jrsdep?file=/pages/index.js)
 
 ## Changelog
 
