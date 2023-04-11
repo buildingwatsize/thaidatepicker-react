@@ -106,7 +106,7 @@ export const propsDataSource = [
     key: "12",
     property: "reactDatePickerProps",
     description:
-      "An override react-datepicker properties. See more (https://reactdatepicker.com/)",
+      "An override react-datepicker properties. See more (https://reactdatepicker.com/ or https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md)",
     type: "Object",
     default: "-",
     version: "",
