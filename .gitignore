@@ -25,3 +25,6 @@ __snapshots__
 */.eslintcache
 
 coverage
+
+.yarn/*
+.pnp*
