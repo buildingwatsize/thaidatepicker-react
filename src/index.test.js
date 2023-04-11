@@ -73,9 +73,9 @@ describe("ThaiDatePicker", () => {
     expect(mockOnChange).toHaveBeenCalledTimes(1);
     expect(mockOnChange).toHaveBeenCalledWith("2023-12-31", "2566-12-31");
 
-    fireEvent.change(inputElement, { target: { value: "" } });
+    fireEvent.change(inputElement, { target: { value: "1999-12-30" } });
     expect(mockOnChange).toHaveBeenCalledTimes(2);
-    expect(mockOnChange).toHaveBeenCalledWith("", "");
+    expect(mockOnChange).toHaveBeenCalledWith("1999-12-30", "2542-12-30");
   });
   test("should be have customize an input", () => {
     let interceptInputValue = "";

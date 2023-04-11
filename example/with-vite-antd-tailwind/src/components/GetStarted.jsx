@@ -43,7 +43,11 @@ const GetStarted = () => {
     },
     {
       title: "Example:",
-      content: <ThaiDatePicker />,
+      content: (
+        <ThaiDatePicker
+          reactDatePickerProps={{ popperClassName: "!z-10" }} // which used temporary for displaying over the Properties table
+        />
+      ),
     },
     {
       title: "Properties",

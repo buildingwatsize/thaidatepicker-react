@@ -2,6 +2,17 @@
 
 ## 🎉 Release - v1 🎉
 
+## [v1.0.3] - `2023-04-11`
+
+### Added
+
+- Vercel Analytics for demo project
+
+### Edited
+
+- bump dependencies
+- fixed z-index over the properties table in example
+
 ## [v1.0.2] - `2023-01-26`
 
 ### Added
@@ -87,6 +98,7 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v1.0.3]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.3
 [v1.0.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.2
 [v0.2.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.2
 [v0.2.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.1
