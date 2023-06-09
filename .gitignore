@@ -26,5 +26,10 @@ __snapshots__
 
 coverage
 
+.pnp.*
 .yarn/*
-.pnp*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
