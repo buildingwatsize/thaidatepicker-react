@@ -2,6 +2,12 @@
 
 ## 🎉 Release - v1 🎉
 
+## [v1.0.5] - `2023-06-12`
+
+### Edited
+
+- Fixed package linking
+
 ## [v1.0.4] - `2023-06-09`
 
 ### Edited
@@ -104,6 +110,8 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v1.0.5]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.5
+[v1.0.4]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.4
 [v1.0.3]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.3
 [v1.0.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.2
 [v0.2.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v0.2.2
