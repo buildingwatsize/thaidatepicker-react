@@ -792,3 +792,16 @@
 .react-datepicker__portal .react-datepicker__current-month {
   font-size: 1.44rem;
 }
+
+/* Workaround aria-live always display */
+.react-datepicker__aria-live {
+  position: absolute;
+  clip-path: circle(0);
+  border: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+  white-space: nowrap;
+}

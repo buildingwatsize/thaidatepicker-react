@@ -177,7 +177,7 @@ ThaiDatePicker.defaultProps = {
   inputProps: null,
   maxDate: null,
   minDate: null,
-  onChange: (_christdate, _thaiDate) => null,
+  onChange: (_christDate, _thaiDate) => null,
   placeholder: "",
   reactDatePickerProps: null,
   readOnly: false,
