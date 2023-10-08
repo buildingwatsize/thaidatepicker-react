@@ -17,7 +17,7 @@
     "@vercel/analytics": "^0.1.11",
     "antd": "^5.1.5",
     "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.31",
     "react": "link:../../node_modules/react",
     "react-dom": "link:../../node_modules/react-dom",
     "tailwindcss": "^3.2.4",
