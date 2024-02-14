@@ -1,5 +1,8 @@
 import { Input, Typography } from "antd";
+import { useState } from "react";
 import { ThaiDatePicker } from "thaidatepicker-react";
+
+import "./CustomThaiDatePicker.css";
 
 const RenderWithCode = ({ title, description, children, code }) => {
   return (
@@ -19,14 +22,18 @@ const RenderWithCode = ({ title, description, children, code }) => {
 };
 
 const AdvancedGuide = () => {
+  const [value, setValue] = useState("");
   return (
     <div>
       <Typography.Title level={4}>Example</Typography.Title>
+      <p>Note: All values were linked</p>
 
       {/* // ## Guide 1 - Custom input ## // */}
       <RenderWithCode
         title="#1 Custom Input (with Ant Design Input)"
         code={`<ThaiDatePicker
+  value={value}
+  onChange={(christDate) => setValue(christDate)}
   customInput={Input}
   inputProps={{
     displayFormat: "D MMMM YYYY",
@@ -35,6 +42,8 @@ const AdvancedGuide = () => {
 />`}
       >
         <ThaiDatePicker
+          value={value}
+          onChange={(christDate) => setValue(christDate)}
           customInput={Input}
           inputProps={{ displayFormat: "D MMMM YYYY", className: "w-full" }}
         />
@@ -45,6 +54,8 @@ const AdvancedGuide = () => {
         title="#2 Another way to use custom input"
         description="(Note: the reactDatePickerProps will override any inputProps)"
         code={`<ThaiDatePicker
+  value={value}
+  onChange={(christDate) => setValue(christDate)}
   clearable={false}
   reactDatePickerProps={{
     customInput: <input />
@@ -55,6 +66,8 @@ const AdvancedGuide = () => {
 />`}
       >
         <ThaiDatePicker
+          value={value}
+          onChange={(christDate) => setValue(christDate)}
           clearable={false}
           reactDatePickerProps={{
             customInput: <input />, // you need to place the `className` alongside the <input /> on this line
@@ -69,7 +82,8 @@ const AdvancedGuide = () => {
       <RenderWithCode
         title="#3 Custom header of calendar (icons, className)"
         code={`<ThaiDatePicker
-  value="2023-12-31"
+  value={value}
+  onChange={(christDate) => setValue(christDate)}
   dateFormat={"yyyy MM dd"}
   inputProps={{
     displayFormat: "D MMMM YYYY",
@@ -86,7 +100,8 @@ const AdvancedGuide = () => {
 />`}
       >
         <ThaiDatePicker
-          value="2023-12-31"
+          value={value}
+          onChange={(christDate) => setValue(christDate)}
           dateFormat={"yyyy MM dd"}
           inputProps={{
             displayFormat: "D MMMM YYYY",
@@ -109,15 +124,21 @@ const AdvancedGuide = () => {
         description="(Note: Please use `displayFormat` inside inputProps instead of
         `dateFormat` on react-datepicker)"
         code={`<ThaiDatePicker
-  onChange={(christDate) => console.log(christDate)}
+  value={value}
+  onChange={(christDate) => setValue(christDate)}
   inputProps={{
-    displayFormat: "D MMM YY",
+    displayFormat: "D MMM YY",   // << using this instead!
     className: "w-full",
+  }}
+  dateFormat="yyyy_MM_dd"        // this won't work anymore!
+  reactDatePickerProps={{
+    dateFormat: "yyyy MM dd",    // and this won't work anymore too!
   }}
 />`}
       >
         <ThaiDatePicker
-          onChange={(christDate) => console.log(christDate)}
+          value={value}
+          onChange={(christDate) => setValue(christDate)}
           inputProps={{
             displayFormat: "D MMM YY", // << using this instead!
             className: "w-full",
@@ -132,19 +153,18 @@ const AdvancedGuide = () => {
       {/* // ## Guide 5 - Work with id - styling ## // */}
       <RenderWithCode
         title={"#5 Work with id - Styling"}
-        description="(Note: I just styling input like an ant-design Input but changed a little bit color. See more `ThaiDatepicker.css`)"
+        description="(Note: I just styling input like an ant-design Input but changed a little bit color. See more `components/CustomThaiDatePicker.css`)"
         code={`<ThaiDatePicker
   id="custom-id"
-  onChange={(value) => {
-    console.log(value);
-  }}
+  value={value}
+  onChange={(christDate) => setValue(christDate)}
+  placeholder="Custom Styling"
 />`}
       >
         <ThaiDatePicker
           id="custom-id"
-          onChange={(value) => {
-            console.log(value);
-          }}
+          value={value}
+          onChange={(christDate) => setValue(christDate)}
           placeholder="Custom Styling"
         />
       </RenderWithCode>
@@ -152,17 +172,17 @@ const AdvancedGuide = () => {
       {/* // ## Guide 6 - Disabled ## // */}
       <RenderWithCode
         title={"#6 Disabled"}
-        code={`<ThaiDatePicker value={"2023-12-31"} disabled />`}
+        code={`<ThaiDatePicker value={"2024-12-31"} disabled />`}
       >
-        <ThaiDatePicker value={"2023-12-31"} disabled />
+        <ThaiDatePicker value={"2024-12-31"} disabled />
       </RenderWithCode>
 
       {/* // ## Guide 7 - ReadOnly ## // */}
       <RenderWithCode
         title={"#7 ReadOnly"}
-        code={`<ThaiDatePicker value={"2023-12-31"} readOnly />`}
+        code={`<ThaiDatePicker value={"2024-12-31"} readOnly />`}
       >
-        <ThaiDatePicker value={"2023-12-31"} readOnly />
+        <ThaiDatePicker value={"2024-12-31"} readOnly />
       </RenderWithCode>
 
       {/* // ## Guide X - TBD ## // */}

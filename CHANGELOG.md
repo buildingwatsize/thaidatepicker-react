@@ -2,7 +2,17 @@
 
 ## 🎉 Release - v1 🎉
 
+## [v1.2.0] - `2024-02-14`
+
+### Edited
+
+- 🌹 Happy Valentine Day
+- updated dependencies (`Alert!` bump major version. So if something not working as expected, don't hesitate for opening the issues/PR.)
+- updated demo `example/with-vite-antd-tailwind`
+
 ## [v1.1.0] - `2023-09-27`
+
+### Edited
 
 - updated dependencies
 
@@ -114,6 +124,8 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v1.2.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.2.0
+[v1.1.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.1.0
 [v1.0.5]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.5
 [v1.0.4]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.4
 [v1.0.3]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.3

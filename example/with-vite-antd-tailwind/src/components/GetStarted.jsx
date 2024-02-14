@@ -44,9 +44,15 @@ const GetStarted = () => {
     {
       title: "Example:",
       content: (
-        <ThaiDatePicker
-          reactDatePickerProps={{ popperClassName: "!z-10" }} // which used temporary for displaying over the Properties table
-        />
+        <>
+          <ThaiDatePicker
+            className="w-full"
+            reactDatePickerProps={{ popperClassName: "!z-10" }} // which used temporary for displaying over the Properties table
+          />
+          <span className="italic text-black/40">
+            Note: just for showcase the calendar
+          </span>
+        </>
       ),
     },
     {
