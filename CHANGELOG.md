@@ -2,6 +2,12 @@
 
 ## 🎉 Release - v1 🎉
 
+## [v1.2.1] - `2024-02-20`
+
+### Edited
+
+- Fixed bugs on `dist` output when publish to npmjs
+
 ## [v1.2.0] - `2024-02-14`
 
 ### Edited
@@ -124,6 +130,7 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v1.2.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.2.1
 [v1.2.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.2.0
 [v1.1.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.1.0
 [v1.0.5]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.0.5
