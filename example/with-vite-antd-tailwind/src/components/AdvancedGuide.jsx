@@ -58,10 +58,10 @@ const AdvancedGuide = () => {
   onChange={(christDate) => setValue(christDate)}
   clearable={false}
   reactDatePickerProps={{
-    customInput: <input />
+    customInput: <input className="w-full bg-blue-300" />, // <-- ✅ className can be used on this line
   }}
   inputProps={{
-    className: "w-full bg-red-300"
+    className: "bg-red-300",                               // <-- ❌ this is not working anymore
   }}
 />`}
       >
@@ -70,10 +70,10 @@ const AdvancedGuide = () => {
           onChange={(christDate) => setValue(christDate)}
           clearable={false}
           reactDatePickerProps={{
-            customInput: <input />, // you need to place the `className` alongside the <input /> on this line
+            customInput: <input className="w-full bg-blue-300" />, // className can be used on this line
           }}
           inputProps={{
-            className: "w-full bg-red-300",
+            className: "bg-red-300", // <-- ❌ this is not working anymore
           }}
         />
       </RenderWithCode>
@@ -127,12 +127,12 @@ const AdvancedGuide = () => {
   value={value}
   onChange={(christDate) => setValue(christDate)}
   inputProps={{
-    displayFormat: "D MMM YY",   // << using this instead!
+    displayFormat: "D MMM YY",   // <-- ✅ using this instead!
     className: "w-full",
   }}
-  dateFormat="yyyy_MM_dd"        // this won't work anymore!
+  dateFormat="yyyy_MM_dd"        // <-- ❌ this won't work anymore!
   reactDatePickerProps={{
-    dateFormat: "yyyy MM dd",    // and this won't work anymore too!
+    dateFormat: "yyyy MM dd",    // <-- ❌ and this won't work anymore too!
   }}
 />`}
       >
@@ -140,12 +140,12 @@ const AdvancedGuide = () => {
           value={value}
           onChange={(christDate) => setValue(christDate)}
           inputProps={{
-            displayFormat: "D MMM YY", // << using this instead!
+            displayFormat: "D MMM YY", // <-- ✅ using this instead!
             className: "w-full",
           }}
-          dateFormat="yyyy_MM_dd" // this won't work anymore!
+          dateFormat="yyyy_MM_dd" // <-- ❌ this won't work anymore!
           reactDatePickerProps={{
-            dateFormat: "yyyy MM dd", // and this won't work anymore too!
+            dateFormat: "yyyy MM dd", // <-- ❌ and this won't work anymore too!
           }}
         />
       </RenderWithCode>

@@ -1,10 +1,11 @@
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Tag } from "antd";
 import React, { useEffect, useState } from "react";
 
+import Donate from "components/Donate";
 import Header from "components/Header";
 import Loading from "components/Loading";
 import { GetHash, ReplaceHash } from "utils/function";
-import "./App.css";
+import "./App.css?inline";
 
 const AdvancedGuide = React.lazy(() => import("components/AdvancedGuide.jsx"));
 const Basic = React.lazy(() => import("components/Basic.jsx"));
@@ -29,12 +30,24 @@ const items = [
     key: "advanced",
     label: "Advanced Guide",
   },
+  {
+    key: "donate",
+    label: (
+      <div className="flex justify-between">
+        <span>Donate</span>
+        <Tag className="h-fit self-center leading-snug" color="#ff0000">
+          NEW
+        </Tag>
+      </div>
+    ),
+  },
 ];
 const renderItem = {
   get_started: <GetStarted />,
   basic: <Basic />,
   form: <EasyForm />,
   advanced: <AdvancedGuide />,
+  donate: <Donate />,
 };
 
 const App = () => {

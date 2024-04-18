@@ -199,3 +199,11 @@ const App = () => {
   };
   
   export default App;`;
+
+export const easySrcCode = `<ThaiDatePicker
+  placeholder="I'm here 👋"
+  customInput={Input}
+  inputProps={{
+    displayFormat: "D MMMM YYYY", // also works with "D MMMM BBBB"
+  }}
+/>`;

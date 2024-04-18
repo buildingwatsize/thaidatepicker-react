@@ -1,8 +1,7 @@
 import { Button, Form, Input, Typography } from "antd";
 import React, { useCallback } from "react";
 import { ThaiDatePicker } from "thaidatepicker-react";
-
-import "./CustomThaiDatePicker.css";
+import { easySrcCode } from "utils/constant";
 
 const EasyForm = () => {
   const handleValuesChange = useCallback((values) => {
@@ -15,7 +14,7 @@ const EasyForm = () => {
   return (
     <div>
       <Typography.Title level={4}>
-        Ant Design Form with thai-datepicker
+        Ant Design Form with thaidatepicker-react
       </Typography.Title>
       <Form
         name="EasyForm"
@@ -38,7 +37,13 @@ const EasyForm = () => {
         </Form.Item>
 
         <Form.Item label="Date of birth" name="date_of_birth">
-          <ThaiDatePicker placeholder="I'm here 👋" customInput={Input} />
+          <ThaiDatePicker
+            placeholder="I'm here 👋"
+            customInput={Input}
+            inputProps={{
+              displayFormat: "D MMMM YYYY", // also works with "D MMMM BBBB"
+            }}
+          />
         </Form.Item>
 
         <Typography.Title level={5}>Address</Typography.Title>
@@ -67,6 +72,11 @@ const EasyForm = () => {
           </Button>
         </Form.Item>
       </Form>
+
+      <Typography.Title level={4}>Source Code</Typography.Title>
+      <Typography.Paragraph copyable={{ text: easySrcCode }}>
+        <pre>{easySrcCode}</pre>
+      </Typography.Paragraph>
     </div>
   );
 };

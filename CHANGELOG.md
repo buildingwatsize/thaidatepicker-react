@@ -2,6 +2,13 @@
 
 ## 🎉 Release - v1 🎉
 
+## [v1.3.0] - `2024-04-18`
+
+- Added supported `dayjs/locale/th` as default
+- Added supported `dayjs/plugin/buddhistEra` as default
+- Updated dependencies
+- Updated `example/with-vite-andt-tailwind`'s deps, source code, and also bumps the vite major version
+
 ## [v1.2.1] - `2024-02-20`
 
 ### Edited

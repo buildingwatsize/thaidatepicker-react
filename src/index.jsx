@@ -21,6 +21,12 @@ const locale = "th";
 registerLocale(locale, th);
 setDefaultLocale(locale);
 
+import "dayjs/locale/th";
+import buddhistEra from "dayjs/plugin/buddhistEra";
+
+dayjs.locale(locale);
+dayjs.extend(buddhistEra);
+
 const yearGenerator = new YearListGenerator(dayjs);
 
 const CustomInputWrapped = (Input, { displayFormat, ...restInputProps }) =>

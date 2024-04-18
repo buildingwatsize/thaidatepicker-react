@@ -1,6 +1,7 @@
 import { Typography } from "antd";
 import React, { useState } from "react";
 import { ThaiDatePicker } from "thaidatepicker-react";
+import { basicSrcCode } from "utils/constant";
 
 const Basic = () => {
   const [selectedDate, setSelectedDate] = useState();
@@ -36,6 +37,10 @@ const Basic = () => {
           </div>
         </div>
       </div>
+      <Typography.Title level={4}>Source Code </Typography.Title>
+      <Typography.Paragraph copyable={{ text: basicSrcCode }}>
+        <pre>{basicSrcCode}</pre>
+      </Typography.Paragraph>
     </>
   );
 };

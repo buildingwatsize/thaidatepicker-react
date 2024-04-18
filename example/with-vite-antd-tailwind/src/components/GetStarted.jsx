@@ -50,7 +50,7 @@ const GetStarted = () => {
             reactDatePickerProps={{ popperClassName: "!z-10" }} // which used temporary for displaying over the Properties table
           />
           <span className="italic text-black/40">
-            Note: just for showcase the calendar
+            Note: just for showcase the calendar (unable to select)
           </span>
         </>
       ),
@@ -58,14 +58,13 @@ const GetStarted = () => {
     {
       title: "Properties",
       content: (
-        <div className="overflow-scroll">
+        <>
           <Table
             dataSource={propsDataSource}
             columns={propsColumns}
             pagination={{ pageSize: 100, hideOnSinglePage: true }}
-            scroll={{ x: true }}
           />
-        </div>
+        </>
       ),
     },
   ];
