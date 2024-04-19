@@ -2,12 +2,25 @@
 
 ## 🎉 Release - v1 🎉
 
+## [v1.3.1] - `2024-04-19`
+
+### Edited
+
+- Refactor code to explicit props declaration and also minimize the export
+- Refactor code to support webpack 5
+- Updated example for selectable with input formatting
+
 ## [v1.3.0] - `2024-04-18`
 
-- Added supported `dayjs/locale/th` as default
-- Added supported `dayjs/plugin/buddhistEra` as default
-- Updated dependencies
-- Updated `example/with-vite-andt-tailwind`'s deps, source code, and also bumps the vite major version
+### Added 
+
+- Support `dayjs/locale/th` as default
+- Support `dayjs/plugin/buddhistEra` as default
+
+### Updated
+
+- dependencies
+- `example/with-vite-andt-tailwind`'s deps, source code, and also bumps the vite major version
 
 ## [v1.2.1] - `2024-02-20`
 
@@ -137,6 +150,8 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v1.3.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.1
+[v1.3.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.0
 [v1.2.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.2.1
 [v1.2.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.2.0
 [v1.1.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.1.0
