@@ -21,8 +21,8 @@ const locale = "th";
 registerLocale(locale, th);
 setDefaultLocale(locale);
 
-import "dayjs/locale/th";
-import buddhistEra from "dayjs/plugin/buddhistEra";
+import "dayjs/locale/th.js";
+import buddhistEra from "dayjs/plugin/buddhistEra.js";
 
 dayjs.locale(locale);
 dayjs.extend(buddhistEra);
@@ -66,24 +66,23 @@ const CustomInputWrapped = (Input, { displayFormat, ...restInputProps }) =>
     );
   });
 
-export const ThaiDatePicker = (props) => {
+const ThaiDatePicker = ({
+  children,
+  id,
+  value,
+  onChange,
+  disabled,
+  readOnly,
+  clearable,
+  placeholder,
+  header,
+  yearBoundary,
+  inputProps,
+  reactDatePickerProps,
+  ...restProps
+}) => {
   const datePickerRef = useRef(null);
   useStylesheet(datePickerRef);
-  const {
-    children,
-    id,
-    value,
-    onChange,
-    disabled,
-    readOnly,
-    clearable,
-    placeholder,
-    header,
-    yearBoundary,
-    inputProps,
-    reactDatePickerProps,
-    ...restProps
-  } = props;
 
   // react-datepicker need input as type Date
   const [selectedDate, setSelectedDate] = useState(
@@ -95,10 +94,10 @@ export const ThaiDatePicker = (props) => {
   const highlightDates = restProps.highlightDates ?? GetHighlightByDate();
   const CustomInput = useMemo(
     () =>
-      CustomInputWrapped(
-        restProps.customInput,
-        inputProps ?? { style: { width: "100%" } }
-      ), // if customInput is null will be use default input
+      CustomInputWrapped(restProps.customInput, {
+        ...inputProps,
+        style: { width: "100%", ...inputProps?.style }, // w-full as default
+      }),
     [restProps.customInput, JSON.stringify(inputProps)]
   );
 
@@ -209,4 +208,4 @@ ThaiDatePicker.propTypes = {
   yearBoundary: PropTypes.number,
 };
 
-export const WatDatePicker = ThaiDatePicker; // just like previous version (you can keep using my nickname as the component name :D)
+export { ThaiDatePicker, ThaiDatePicker as WatDatePicker }; // just like previous version (you can keep using my nickname as the component name :D)

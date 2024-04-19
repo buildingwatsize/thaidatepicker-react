@@ -1,5 +1,5 @@
 import { List, Table, Typography } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { ThaiDatePicker } from "thaidatepicker-react";
 
 import { basicSrcCode, propsColumns, propsDataSource } from "../utils/constant";
@@ -43,17 +43,7 @@ const GetStarted = () => {
     },
     {
       title: "Example:",
-      content: (
-        <>
-          <ThaiDatePicker
-            className="w-full"
-            reactDatePickerProps={{ popperClassName: "!z-10" }} // which used temporary for displaying over the Properties table
-          />
-          <span className="italic text-black/40">
-            Note: just for showcase the calendar (unable to select)
-          </span>
-        </>
-      ),
+      content: <DemoThaiDatePicker />,
     },
     {
       title: "Properties",
@@ -84,6 +74,23 @@ const GetStarted = () => {
         )}
         split={false}
       />
+    </>
+  );
+};
+
+const DemoThaiDatePicker = () => {
+  const [value, setValue] = useState("");
+  return (
+    <>
+      <ThaiDatePicker
+        value={value}
+        onChange={(v) => setValue(v)}
+        inputProps={{ displayFormat: "DD MMMM YYYY" }}
+        reactDatePickerProps={{ popperClassName: "!z-10" }} // which used temporary for displaying over the Properties table
+      />
+      <span className="italic text-black/40">
+        Note: {`inputProps={{ displayFormat: "DD MMMM YYYY" }}`}
+      </span>
     </>
   );
 };

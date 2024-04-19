@@ -10,7 +10,7 @@
     "eslint-config-react-app": "link:../../node_modules/eslint-config-react-app",
     "react": "link:../../node_modules/react",
     "react-dom": "link:../../node_modules/react-dom",
-    "react-scripts": "link:../../node_modules/react-scripts",
+    "react-scripts": "^5.0.1",
     "thaidatepicker-react": "link:../..",
     "web-vitals": "^2.1.4"
   },
