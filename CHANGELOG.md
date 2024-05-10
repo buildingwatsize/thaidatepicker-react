@@ -2,9 +2,26 @@
 
 ## 🎉 Release - v1 🎉
 
+## [v1.3.3] - `2024-05-10`
+
+### Added
+
+- More example for Typescript project
+
+### Edited
+
+- Fixed bugs for explicit define types on package.json
+- Code preparing for Typescript migration (defaultProps will be removed)
+
+### Updated
+
+- dependencies
+
 ## [v1.3.2] - `2024-05-02`
 
-- Updated dependencies
+### Updated
+
+- dependencies
 
 ## [v1.3.1] - `2024-04-19`
 
@@ -154,6 +171,7 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v1.3.3]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.3
 [v1.3.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.2
 [v1.3.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.1
 [v1.3.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.0

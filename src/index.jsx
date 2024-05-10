@@ -66,19 +66,57 @@ const CustomInputWrapped = (Input, { displayFormat, ...restInputProps }) =>
     );
   });
 
+// note: prepare for ts migration
+const defaultProps = {
+  children: null,
+  clearable: true,
+  customInput: null,
+  disabled: false,
+  header: null,
+  highlightDates: null,
+  id: null,
+  inputProps: null,
+  maxDate: null,
+  minDate: null,
+  onChange: (_christDate, _thaiDate) => null,
+  placeholder: "",
+  reactDatePickerProps: null,
+  readOnly: false,
+  value: "",
+  yearBoundary: 99,
+};
+const propTypes = {
+  children: PropTypes.any,
+  clearable: PropTypes.bool,
+  customInput: PropTypes.any,
+  disabled: PropTypes.bool,
+  header: PropTypes.any,
+  highlightDates: PropTypes.any,
+  id: PropTypes.string,
+  inputProps: PropTypes.any,
+  maxDate: PropTypes.any,
+  minDate: PropTypes.any,
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  reactDatePickerProps: PropTypes.any,
+  readOnly: PropTypes.bool,
+  value: PropTypes.string,
+  yearBoundary: PropTypes.number,
+};
+
 const ThaiDatePicker = ({
-  children,
-  id,
-  value,
-  onChange,
-  disabled,
-  readOnly,
-  clearable,
-  placeholder,
-  header,
-  yearBoundary,
-  inputProps,
-  reactDatePickerProps,
+  children = defaultProps.children,
+  id = defaultProps.id,
+  value = defaultProps.value,
+  onChange = defaultProps.onChange,
+  disabled = defaultProps.disabled,
+  readOnly = defaultProps.readOnly,
+  clearable = defaultProps.clearable,
+  placeholder = defaultProps.placeholder,
+  header = defaultProps.header,
+  yearBoundary = defaultProps.yearBoundary,
+  inputProps = defaultProps.inputProps,
+  reactDatePickerProps = defaultProps.reactDatePickerProps,
   ...restProps
 }) => {
   const datePickerRef = useRef(null);
@@ -171,41 +209,7 @@ const ThaiDatePicker = ({
   );
 };
 
-ThaiDatePicker.defaultProps = {
-  children: null,
-  clearable: true,
-  customInput: null,
-  disabled: false,
-  header: null,
-  highlightDates: null,
-  id: null,
-  inputProps: null,
-  maxDate: null,
-  minDate: null,
-  onChange: (_christDate, _thaiDate) => null,
-  placeholder: "",
-  reactDatePickerProps: null,
-  readOnly: false,
-  value: "",
-  yearBoundary: 99,
-};
-ThaiDatePicker.propTypes = {
-  children: PropTypes.any,
-  clearable: PropTypes.bool,
-  customInput: PropTypes.any,
-  disabled: PropTypes.bool,
-  header: PropTypes.any,
-  highlightDates: PropTypes.any,
-  id: PropTypes.string,
-  inputProps: PropTypes.any,
-  maxDate: PropTypes.any,
-  minDate: PropTypes.any,
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  reactDatePickerProps: PropTypes.any,
-  readOnly: PropTypes.bool,
-  value: PropTypes.string,
-  yearBoundary: PropTypes.number,
-};
+ThaiDatePicker.defaultProps = defaultProps;
+ThaiDatePicker.propTypes = propTypes;
 
 export { ThaiDatePicker, ThaiDatePicker as WatDatePicker }; // just like previous version (you can keep using my nickname as the component name :D)
