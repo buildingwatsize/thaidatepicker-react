@@ -2,13 +2,19 @@
 
 ## 🎉 Release - v1 🎉
 
-### [v1.3.5] - `2024-06-21`
+## [v1.3.6] - `2024-08-15`
+
+### Updated
+
+- dependencies
+
+## [v1.3.5] - `2024-06-21`
 
 ### Edited
 
 - Updated security alerts from Dependabot
 
-### [v1.3.4] - `2024-06-21`
+## [v1.3.4] - `2024-06-21`
 
 ### Edited
 
@@ -184,6 +190,7 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v1.3.6]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.6
 [v1.3.5]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.5
 [v1.3.4]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.4
 [v1.3.3]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v1.3.3
