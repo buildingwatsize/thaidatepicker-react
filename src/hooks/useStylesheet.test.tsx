@@ -18,5 +18,8 @@ describe("Test hooks/useStylesheet", () => {
     const container = screen.getByTestId("test-container");
     expect(container).toBeVisible();
     expect(container).toHaveTextContent("children");
+    expect(
+      document.head.querySelector("style[id='external_react-datepicker.css']")
+    ).not.toBeNull();
   });
 });

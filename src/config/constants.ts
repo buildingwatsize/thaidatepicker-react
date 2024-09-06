@@ -1,4 +1,4 @@
-export const THAI_MONTH_LIST = [
+export const THAI_MONTH_LIST: Array<string> = [
   "มกราคม",
   "กุมภาพันธ์",
   "มีนาคม",

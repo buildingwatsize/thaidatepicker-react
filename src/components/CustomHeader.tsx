@@ -1,13 +1,15 @@
 import dayjs from "dayjs";
-import React from "react";
-
-import NavigateButton from "./NavigateButton";
-import NavigateSelect from "./NavigateSelect";
+import React, { PropsWithChildren } from "react";
+import { type ReactDatePickerCustomHeaderProps } from "react-datepicker";
 
 import { THAI_MONTH_LIST } from "../config/constants";
 import { ConvertToThaiYear } from "../utils";
+import NavigateButton from "./NavigateButton";
+import NavigateSelect from "./NavigateSelect";
 
-const HeaderContainer = ({ children }) => (
+export const HeaderContainer: React.FC<PropsWithChildren> = ({
+  children,
+}: PropsWithChildren) => (
   <div
     style={{
       margin: 10,
@@ -19,14 +21,14 @@ const HeaderContainer = ({ children }) => (
   </div>
 );
 
-const CustomHeader = (
-  prevButtonIcon,
-  nextButtonIcon,
-  prevButtonClassName,
-  nextButtonClassName,
-  monthSelectClassName,
-  yearSelectClassName,
-  yearOptions = []
+export const CustomHeader = (
+  prevButtonIcon: React.ReactNode = "<",
+  nextButtonIcon: React.ReactNode = ">",
+  prevButtonClassName: string = "",
+  nextButtonClassName: string = "",
+  monthSelectClassName: string = "",
+  yearSelectClassName: string = "",
+  yearOptions: Array<number> = []
 ) => {
   return ({
     date,
@@ -36,7 +38,7 @@ const CustomHeader = (
     increaseMonth,
     prevMonthButtonDisabled,
     nextMonthButtonDisabled,
-  }) => {
+  }: ReactDatePickerCustomHeaderProps) => {
     return (
       <HeaderContainer>
         <NavigateButton
@@ -44,7 +46,7 @@ const CustomHeader = (
           disabled={prevMonthButtonDisabled}
           onClick={decreaseMonth}
         >
-          {prevButtonIcon ? prevButtonIcon : "<"}
+          {prevButtonIcon}
         </NavigateButton>
 
         <NavigateSelect
@@ -64,10 +66,10 @@ const CustomHeader = (
         <NavigateSelect
           className={yearSelectClassName}
           value={dayjs(date).year()}
-          onChange={({ target }) => changeYear(target.value)}
+          onChange={({ target }) => changeYear(Number(target.value))}
         >
           {yearOptions.map((option) => (
-            <option key={option} value={option}>
+            <option key={`${option}`} value={`${option}`}>
               {ConvertToThaiYear(option)}
             </option>
           ))}
@@ -78,11 +80,9 @@ const CustomHeader = (
           disabled={nextMonthButtonDisabled}
           onClick={increaseMonth}
         >
-          {nextButtonIcon ? nextButtonIcon : ">"}
+          {nextButtonIcon}
         </NavigateButton>
       </HeaderContainer>
     );
   };
 };
-
-export default CustomHeader;

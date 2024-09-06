@@ -1,10 +1,12 @@
 class YearListGenerator {
-  constructor(dateLibrary) {
+  dateLibrary: (_d?: any) => any;
+
+  constructor(dateLibrary?: any) {
     this.dateLibrary = dateLibrary;
   }
 
   RangeMaker(startVal = 0, endVal = 0, increment = 0) {
-    let list = [];
+    let list: Array<number> = [];
     if (increment <= 0) {
       return list;
     }
@@ -14,8 +16,8 @@ class YearListGenerator {
     return list;
   }
 
-  Generate(scope, minDate, maxDate) {
-    const scopeYear = scope ?? 99;
+  Generate(scope: number = 99, minDate: any, maxDate: any) {
+    const scopeYear = scope;
     const currentYear = this.dateLibrary().year();
     const minYear = minDate
       ? this.dateLibrary(minDate).year()
