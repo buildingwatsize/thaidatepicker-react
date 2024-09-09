@@ -11,24 +11,28 @@ const useIsomorphicLayoutEffect =
 import styles from "../external/react-datepicker.css";
 
 const styleElementMap = new Map();
-const getParentDocument = (nodeRef = {}) => {
-  return nodeRef.current ? nodeRef.current.ownerDocument : document;
+const getParentDocument = (nodeRef: React.MutableRefObject<null>) => {
+  return nodeRef.current ? nodeRef.current?.["ownerDocument"] : document;
 };
 
 /**
  * Injects CSS code into the document's <head>
  */
-export const useStylesheet = (nodeRef = {}) => {
+export const useStylesheet = (
+  nodeRef: React.MutableRefObject<null>,
+  enable: boolean = true
+) => {
   useIsomorphicLayoutEffect(() => {
     const parentDocument = getParentDocument(nodeRef);
 
     if (
       typeof parentDocument !== "undefined" &&
-      !styleElementMap.has(parentDocument)
+      !styleElementMap.has(parentDocument) &&
+      enable
     ) {
       const styleElement = parentDocument.createElement("style");
-      styleElement.name = "external_react-datepicker.css";
-      styleElement.innerHTML = styles;
+      styleElement.id = "external_react-datepicker.css";
+      styleElement.innerHTML = styles as string;
       styleElementMap.set(parentDocument, styleElement);
 
       parentDocument.head.appendChild(styleElement);

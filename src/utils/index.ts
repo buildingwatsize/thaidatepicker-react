@@ -1,7 +1,7 @@
 /**
  * Convert christ year to buddhist year (+543)
  */
-export const ConvertToThaiYear = (christYear) => {
+export const ConvertToThaiYear = (christYear: number) => {
   return christYear + 543;
 };
 

@@ -37,7 +37,7 @@ This is a demo website to show how to use `thaidatepicker-react` package with `v
 1. Install dependencies
 
    ```bash
-   # Run this command inside `thaidatepicker-react/example/with-create-react-app`
+   # Run this command inside `thaidatepicker-react/example/with-vite-antd-tailwind`
    yarn
    ```
 

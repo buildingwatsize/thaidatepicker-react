@@ -39,8 +39,10 @@ describe("ThaiDatePicker", () => {
       },
     ].forEach((tc) => {
       const { unmount } = render(<ThaiDatePicker value={tc.christDateInput} />);
-      const inputElement = screen.queryByTestId("thdpk-input");
-      expect(inputElement.value).toBe(tc.thaiDateOutput);
+      const inputElement = screen.queryByTestId(
+        "thdpk-input"
+      ) as HTMLInputElement;
+      expect(inputElement?.value).toBe(tc.thaiDateOutput);
       unmount();
     });
   });
@@ -51,7 +53,9 @@ describe("ThaiDatePicker", () => {
         inputProps={{ displayFormat: "DD MM YYYY" }}
       />
     );
-    const inputElement = screen.queryByTestId("thdpk-input");
+    const inputElement = screen.queryByTestId(
+      "thdpk-input"
+    ) as HTMLInputElement;
     expect(inputElement.value).toBe("31 01 2566");
   });
   test("should be have value showing format as inputProps.displayFormat (DD M YY)", () => {
@@ -61,13 +65,17 @@ describe("ThaiDatePicker", () => {
         inputProps={{ displayFormat: "DD M YY" }}
       />
     );
-    const inputElement = screen.queryByTestId("thdpk-input");
+    const inputElement = screen.queryByTestId(
+      "thdpk-input"
+    ) as HTMLInputElement;
     expect(inputElement.value).toBe("02 1 43");
   });
   test("should be changeable value", () => {
     const mockOnChange = jest.fn();
     render(<ThaiDatePicker onChange={mockOnChange} />);
-    const inputElement = screen.queryByTestId("thdpk-input");
+    const inputElement = screen.queryByTestId(
+      "thdpk-input"
+    ) as HTMLInputElement;
 
     fireEvent.change(inputElement, { target: { value: "2023-12-31" } });
     expect(mockOnChange).toHaveBeenCalledTimes(1);
@@ -79,12 +87,22 @@ describe("ThaiDatePicker", () => {
   });
   test("should be have customize an input", () => {
     let interceptInputValue = "";
-    const fakeInput = (props) => {
-      interceptInputValue = props.value;
-      return <input {...props} />;
+    const FakeInput = ({
+      value,
+      onChange,
+    }: {
+      value: string;
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    }) => {
+      interceptInputValue = value;
+      return (
+        <input data-testid="thdpk-input" value={value} onChange={onChange} />
+      );
     };
-    render(<ThaiDatePicker value={"2023-01-31"} customInput={fakeInput} />);
-    const inputElement = screen.queryByTestId("thdpk-input");
+    render(<ThaiDatePicker value={"2023-01-31"} customInput={FakeInput} />);
+    const inputElement = screen.queryByTestId(
+      "thdpk-input"
+    ) as HTMLInputElement;
     expect(inputElement.value).toBe("2566-01-31");
 
     expect(interceptInputValue).toBe(inputElement.value);
@@ -99,5 +117,17 @@ describe("ThaiDatePicker", () => {
 //     render(<WatDatePicker />);
 //     const inputElement = screen.queryByTestId("thdpk-input");
 //     expect(inputElement).toBeInTheDocument();
+//   });
+//   test("should be have value showing format as inputProps.displayFormat (DD MM YYYY)", () => {
+//     render(
+//       <WatDatePicker
+//         value={"2023-01-31"}
+//         inputProps={{ displayFormat: "DD MM YYYY" }}
+//       />
+//     );
+//     const inputElement = screen.queryByTestId(
+//       "thdpk-input"
+//     ) as HTMLInputElement;
+//     expect(inputElement.value).toBe("31 01 2566");
 //   });
 // });
