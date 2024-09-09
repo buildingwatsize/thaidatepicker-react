@@ -18,13 +18,17 @@ const getParentDocument = (nodeRef: React.MutableRefObject<null>) => {
 /**
  * Injects CSS code into the document's <head>
  */
-export const useStylesheet = (nodeRef: React.MutableRefObject<null>) => {
+export const useStylesheet = (
+  nodeRef: React.MutableRefObject<null>,
+  enable: boolean = true
+) => {
   useIsomorphicLayoutEffect(() => {
     const parentDocument = getParentDocument(nodeRef);
 
     if (
       typeof parentDocument !== "undefined" &&
-      !styleElementMap.has(parentDocument)
+      !styleElementMap.has(parentDocument) &&
+      enable
     ) {
       const styleElement = parentDocument.createElement("style");
       styleElement.id = "external_react-datepicker.css";

@@ -20,13 +20,17 @@ dayjs.extend(buddhistEra);
 
 const yearGenerator = new YearListGenerator(dayjs);
 
+const ReactDatePicker =
+  (DatePicker as unknown as { default: typeof DatePicker }).default ??
+  DatePicker;
+
 export interface HighlightDate {
   [className: string]: Date[];
 }
 export interface ThaiDatePickerProps {
-  children?: React.ReactNode;
+  children?: React.ReactNode | null;
   clearable?: boolean;
-  customInput?: React.ComponentType<any>;
+  customInput?: React.ComponentType<any> | null;
   disabled?: boolean;
   header?: {
     prevButtonIcon?: React.ReactNode;
@@ -45,6 +49,7 @@ export interface ThaiDatePickerProps {
     | null;
   maxDate?: Date | string;
   minDate?: Date | string;
+  noIntegratedStyle?: boolean;
   onChange?: (christDate: string, thaiDate: string) => void;
   placeholder?: string;
   reactDatePickerProps?: React.ComponentProps<typeof DatePicker>;
@@ -59,11 +64,12 @@ const defaultProps = {
   customInput: null,
   disabled: false,
   header: null,
-  highlightDates: null,
+  highlightDates: GetHighlightByDate(),
   id: "thdpk-container",
   inputProps: null,
   maxDate: undefined,
   minDate: undefined,
+  noIntegratedStyle: false,
   onChange: (_christDate: string, _thaiDate: string) => null,
   placeholder: "",
   reactDatePickerProps: {},
@@ -74,40 +80,43 @@ const defaultProps = {
 
 export const ThaiDatePicker = ({
   children = defaultProps.children,
-  id = defaultProps.id,
-  value = defaultProps.value,
-  onChange = defaultProps.onChange,
-  disabled = defaultProps.disabled,
-  readOnly = defaultProps.readOnly,
   clearable = defaultProps.clearable,
-  placeholder = defaultProps.placeholder,
+  customInput = defaultProps.customInput,
+  disabled = defaultProps.disabled,
   header = defaultProps.header,
-  yearBoundary = defaultProps.yearBoundary,
+  highlightDates = defaultProps.highlightDates,
+  id = defaultProps.id,
   inputProps = defaultProps.inputProps,
+  maxDate = defaultProps.maxDate,
+  minDate = defaultProps.minDate,
+  noIntegratedStyle = defaultProps.noIntegratedStyle,
+  onChange = defaultProps.onChange,
+  placeholder = defaultProps.placeholder,
   reactDatePickerProps = defaultProps.reactDatePickerProps,
-  ...restProps
+  readOnly = defaultProps.readOnly,
+  value = defaultProps.value,
+  yearBoundary = defaultProps.yearBoundary,
 }: ThaiDatePickerProps) => {
   const datePickerRef = useRef(null);
-  useStylesheet(datePickerRef);
+  useStylesheet(datePickerRef, !noIntegratedStyle);
 
   const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs | null>(
     value ? dayjs(value) : null
   );
-  const minDate = restProps.minDate ? new Date(restProps.minDate) : undefined;
-  const maxDate = restProps.maxDate ? new Date(restProps.maxDate) : undefined;
+  const minDateAsDate = minDate ? new Date(minDate) : undefined;
+  const maxDateAsDate = maxDate ? new Date(maxDate) : undefined;
   const isClearable = !(disabled || readOnly) && (clearable ?? true);
-  const highlightDates = restProps.highlightDates ?? GetHighlightByDate();
   const CustomInput = useMemo(() => {
-    const { displayFormat, ...realProps } = inputProps ?? {};
+    const { displayFormat, ...remainInputProps } = inputProps ?? {};
     return CustomInputWrapped(
-      restProps.customInput,
+      customInput,
       {
-        ...realProps,
-        style: { width: "100%", ...realProps?.style },
+        ...remainInputProps,
+        style: { width: "100%", ...remainInputProps?.style },
       },
       displayFormat
     );
-  }, [restProps.customInput, JSON.stringify(inputProps)]);
+  }, [customInput, JSON.stringify(inputProps)]);
 
   const {
     prevButtonIcon,
@@ -142,16 +151,16 @@ export const ThaiDatePicker = ({
   }, [value, selectedDate]);
 
   const YearOptions = useMemo(
-    () => yearGenerator.Generate(yearBoundary, minDate, maxDate),
-    [yearBoundary, minDate, maxDate]
+    () => yearGenerator.Generate(yearBoundary, minDateAsDate, maxDateAsDate),
+    [yearBoundary, minDateAsDate, maxDateAsDate]
   );
 
   return (
-    <div id={id ?? ""} ref={datePickerRef}>
-      <DatePicker
+    <div id={id} ref={datePickerRef}>
+      <ReactDatePicker
         locale={locale}
-        minDate={minDate}
-        maxDate={maxDate}
+        minDate={minDateAsDate}
+        maxDate={maxDateAsDate}
         isClearable={isClearable}
         disabled={disabled}
         readOnly={readOnly}
@@ -172,7 +181,7 @@ export const ThaiDatePicker = ({
         {...reactDatePickerProps}
       >
         {children}
-      </DatePicker>
+      </ReactDatePicker>
     </div>
   );
 };

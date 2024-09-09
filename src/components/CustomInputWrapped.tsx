@@ -3,7 +3,7 @@ import React, { forwardRef, useMemo } from "react";
 import { ConvertToThaiYear } from "../utils";
 
 export const CustomInputWrapped = (
-  InputComponent?: React.ComponentType<any>,
+  InputComponent?: React.ComponentType<any> | null,
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>,
   displayFormat?: string
 ) =>
