@@ -78,6 +78,18 @@ export default App;
 | **customInput**          | A config for using custom input element. To use, you can provide a name of element like `Input`                                                                                                                                                          | _React.ComponentType<any> \| null_                                                                                                                                                                                       | null                                             |             |
 | **noIntegratedStyle**    | A config for define to exclude integrated css `Note: if you using 2 components, which the first one contain noIntegratedStyle props but the second is not. It will import css and then it apply to them all`                                             | _boolean_                                                                                                                                                                                                                | false                                            | v2.0.0      |
 
+## 🎩 Some Useful Tricks
+
+1. To style dates outside the selected month, use the `.react-datepicker__day--outside-month` CSS class.
+
+   ```css
+   .react-datepicker__day--outside-month {
+     color: #aaa;
+   }
+   ```
+
+   > However, be aware that the appearance may resemble the 'disabled' attribute, which could affect the user experience
+
 ## 📝 Need More Example?
 
 I made a couple difference stack demos. Try looking at the examples of "Vite" projects on [./example](./example).

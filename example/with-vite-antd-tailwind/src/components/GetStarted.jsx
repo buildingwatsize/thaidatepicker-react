@@ -53,6 +53,9 @@ const GetStarted = () => {
             dataSource={propsDataSource}
             columns={propsColumns}
             pagination={{ pageSize: 100, hideOnSinglePage: true }}
+            scroll={{
+              x: true,
+            }}
           />
         </>
       ),
