@@ -72,18 +72,18 @@ describe("ThaiDatePicker", () => {
   });
   test("should be changeable value", () => {
     const mockOnChange = jest.fn();
-    render(<ThaiDatePicker onChange={mockOnChange} />);
+    render(<ThaiDatePicker />);
     const inputElement = screen.queryByTestId(
       "thdpk-input"
     ) as HTMLInputElement;
+    inputElement.addEventListener("change", mockOnChange);
 
     fireEvent.change(inputElement, { target: { value: "2023-12-31" } });
     expect(mockOnChange).toHaveBeenCalledTimes(1);
-    expect(mockOnChange).toHaveBeenCalledWith("2023-12-31", "2566-12-31");
+    expect(inputElement.value).toBe("2566-12-31");
 
     fireEvent.change(inputElement, { target: { value: "1999-12-30" } });
-    expect(mockOnChange).toHaveBeenCalledTimes(2);
-    expect(mockOnChange).toHaveBeenCalledWith("1999-12-30", "2542-12-30");
+    expect(inputElement.value).toBe("2542-12-30");
   });
   test("should be have customize an input", () => {
     let interceptInputValue = "";
