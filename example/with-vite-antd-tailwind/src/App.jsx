@@ -5,7 +5,6 @@ import Donate from "components/Donate";
 import Header from "components/Header";
 import Loading from "components/Loading";
 import { GetHash, ReplaceHash } from "utils/function";
-import "./App.css?inline";
 
 const AdvancedGuide = React.lazy(() => import("components/AdvancedGuide.jsx"));
 const Basic = React.lazy(() => import("components/Basic.jsx"));
@@ -122,7 +121,7 @@ const App = () => {
         >
           <Header
             title={import.meta.env["VITE_PROJECT_NAME"]}
-            className="!mb-0 !mt-4"
+            className="mb-0! mt-4!"
           />
           <div className="text-p px-8 pt-4 pb-8 relative flex-1">
             <React.Suspense fallback={<Loading />}>
