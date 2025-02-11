@@ -3,22 +3,15 @@ import React, { PropsWithChildren } from "react";
 import { type ReactDatePickerCustomHeaderProps } from "react-datepicker";
 
 import { THAI_MONTH_LIST } from "../config/constants";
-import { ConvertToThaiYear } from "../utils";
+import { cn, ConvertToThaiYear } from "../utils";
 import NavigateButton from "./NavigateButton";
 import NavigateSelect from "./NavigateSelect";
 
 export const HeaderContainer: React.FC<PropsWithChildren> = ({
+  className = "",
   children,
-}: PropsWithChildren) => (
-  <div
-    style={{
-      margin: 10,
-      display: "flex",
-      justifyContent: "space-evenly",
-    }}
-  >
-    {children}
-  </div>
+}: PropsWithChildren<{ className?: string }>) => (
+  <div className={cn("tdpk-header", className)}>{children}</div>
 );
 
 export const CustomHeader = (
@@ -42,7 +35,7 @@ export const CustomHeader = (
     return (
       <HeaderContainer>
         <NavigateButton
-          className={prevButtonClassName}
+          className={cn("tdpk-header-prev-btn", prevButtonClassName)}
           disabled={prevMonthButtonDisabled}
           onClick={decreaseMonth}
         >
@@ -50,7 +43,7 @@ export const CustomHeader = (
         </NavigateButton>
 
         <NavigateSelect
-          className={monthSelectClassName}
+          className={cn("tdpk-header-select-month", monthSelectClassName)}
           value={THAI_MONTH_LIST[dayjs(date).month()]}
           onChange={({ target }) =>
             changeMonth(THAI_MONTH_LIST.indexOf(target.value))
@@ -64,7 +57,7 @@ export const CustomHeader = (
         </NavigateSelect>
 
         <NavigateSelect
-          className={yearSelectClassName}
+          className={cn("tdpk-header-select-year", yearSelectClassName)}
           value={dayjs(date).year()}
           onChange={({ target }) => changeYear(Number(target.value))}
         >
@@ -76,7 +69,7 @@ export const CustomHeader = (
         </NavigateSelect>
 
         <NavigateButton
-          className={nextButtonClassName}
+          className={cn("tdpk-header-next-btn", nextButtonClassName)}
           disabled={nextMonthButtonDisabled}
           onClick={increaseMonth}
         >

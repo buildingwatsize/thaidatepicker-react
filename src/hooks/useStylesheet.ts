@@ -11,7 +11,7 @@ const useIsomorphicLayoutEffect =
 import styles from "../external/react-datepicker.css";
 
 const styleElementMap = new Map();
-const getParentDocument = (nodeRef: React.MutableRefObject<null>) => {
+const getParentDocument = (nodeRef: React.RefObject<null>) => {
   return nodeRef.current ? nodeRef.current?.["ownerDocument"] : document;
 };
 
@@ -19,7 +19,7 @@ const getParentDocument = (nodeRef: React.MutableRefObject<null>) => {
  * Injects CSS code into the document's <head>
  */
 export const useStylesheet = (
-  nodeRef: React.MutableRefObject<null>,
+  nodeRef: React.RefObject<null>,
   enable: boolean = true
 ) => {
   useIsomorphicLayoutEffect(() => {

@@ -92,7 +92,7 @@ export default App;
 
 ## 📝 Need More Example?
 
-I made a couple difference stack demos. Try looking at the examples of "Vite" projects on [./example](./example).
+I made a couple difference stack demos. Try looking at the examples of "vite" or "next" projects on [./example](./example).
 
 - Document with Online Demo: [Demo](https://thaidatepicker-react-demo.vercel.app)
 - or alternate example link: [CodeSandbox](https://codesandbox.io/s/thaidatepicker-react-demo-basic-1m33mx?file=/src/App.js)

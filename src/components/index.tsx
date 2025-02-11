@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import "dayjs/locale/th";
 import buddhistEra from "dayjs/plugin/buddhistEra";
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 
 import th from "../config/locale/th";
@@ -30,7 +30,7 @@ export interface HighlightDate {
 export interface ThaiDatePickerProps {
   children?: React.ReactNode | null;
   clearable?: boolean;
-  customInput?: React.ComponentType<any> | null;
+  customInput?: React.ElementType<any> | null;
   disabled?: boolean;
   header?: {
     prevButtonIcon?: React.ReactNode;
@@ -97,27 +97,7 @@ export const ThaiDatePicker = ({
   value = defaultProps.value,
   yearBoundary = defaultProps.yearBoundary,
 }: ThaiDatePickerProps) => {
-  const datePickerRef = useRef(null);
-  useStylesheet(datePickerRef, !noIntegratedStyle);
-
-  const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs | null>(
-    value ? dayjs(value) : null
-  );
-  const minDateAsDate = minDate ? new Date(minDate) : undefined;
-  const maxDateAsDate = maxDate ? new Date(maxDate) : undefined;
   const isClearable = !(disabled || readOnly) && (clearable ?? true);
-  const CustomInput = useMemo(() => {
-    const { displayFormat, ...remainInputProps } = inputProps ?? {};
-    return CustomInputWrapped(
-      customInput,
-      {
-        ...remainInputProps,
-        style: { width: "100%", ...remainInputProps?.style },
-      },
-      displayFormat
-    );
-  }, [customInput, JSON.stringify(inputProps)]);
-
   const {
     prevButtonIcon,
     nextButtonIcon,
@@ -127,7 +107,46 @@ export const ThaiDatePicker = ({
     yearSelectClassName,
   } = header ?? {};
 
-  const handleChange = useCallback((date: any) => {
+  const datePickerRef = useRef(null);
+  useStylesheet(datePickerRef, !noIntegratedStyle);
+
+  const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs | null>(
+    value ? dayjs(value) : null
+  );
+
+  const valueAsDate = useMemo(() => {
+    if (value) {
+      return new Date(value);
+    } else if (value === "") {
+      return null;
+    }
+    return selectedDate ? new Date(selectedDate.toDate()) : null;
+  }, [value, selectedDate]);
+  const minDateAsDate = useMemo(
+    () => (minDate ? new Date(minDate) : undefined),
+    [minDate]
+  );
+  const maxDateAsDate = useMemo(
+    () => (maxDate ? new Date(maxDate) : undefined),
+    [maxDate]
+  );
+  const YearOptions = useMemo(
+    () => yearGenerator.Generate(yearBoundary, minDateAsDate, maxDateAsDate),
+    [yearBoundary, minDateAsDate, maxDateAsDate]
+  );
+  const CustomInput = useMemo(() => {
+    const { displayFormat, style, ...remainInputProps } = inputProps ?? {};
+    return CustomInputWrapped(
+      customInput,
+      {
+        ...remainInputProps,
+        style: { width: "100%", ...style },
+      },
+      displayFormat
+    );
+  }, [customInput, inputProps]);
+
+  const handleChange = (date: any) => {
     const dayjsObj = dayjs(date);
     if (dayjsObj.isValid()) {
       setSelectedDate(dayjsObj);
@@ -139,21 +158,7 @@ export const ThaiDatePicker = ({
       return;
     }
     onChange?.("", "");
-  }, []);
-
-  const valueAsDate = useMemo(() => {
-    if (value) {
-      return new Date(value);
-    } else if (value === "") {
-      return null;
-    }
-    return selectedDate ? new Date(selectedDate.toDate()) : null;
-  }, [value, selectedDate]);
-
-  const YearOptions = useMemo(
-    () => yearGenerator.Generate(yearBoundary, minDateAsDate, maxDateAsDate),
-    [yearBoundary, minDateAsDate, maxDateAsDate]
-  );
+  };
 
   return (
     <div id={id} ref={datePickerRef}>
@@ -166,7 +171,7 @@ export const ThaiDatePicker = ({
         readOnly={readOnly}
         placeholderText={placeholder}
         highlightDates={highlightDates}
-        customInput={<CustomInput />}
+        customInput={React.createElement(CustomInput)}
         selected={valueAsDate}
         onChange={handleChange}
         renderCustomHeader={CustomHeader(

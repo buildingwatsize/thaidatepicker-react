@@ -77,11 +77,11 @@ const App = () => {
       >
         <div
           name="menuLogo"
-          className="h-8 m-4 bg-white/30 flex justify-center items-center"
+          className="h-8 m-4 bg-white/30 flex justify-center items-center group hover:bg-white transition-all duration-300 ease-in-out hover:rounded-md"
         >
           <a
             href="https://github.com/buildingwatsize/thaidatepicker-react"
-            className="flex items-center gap-2 text-black"
+            className="flex items-center gap-2 text-black! group-hover:text-neutral-900!"
           >
             <svg viewBox="0 0 16 16" version="1.1" height="24">
               <path

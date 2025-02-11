@@ -2,12 +2,20 @@
 
 ## 🎉 Release - v2 🎉
 
-## [v2.1.0] - `2025-02-10`
+## [v2.1.0] - `2025-02-11`
 
 ### Updated
 
-- Supported `React@19`
+- Supported `React 19` ✨
 - Updated dependencies
+- Migrated React 19 forwardRef
+- Migrated deprecated `React.MutableRefObject` to `React.RefObject`
+
+### Edited
+
+- Edited `customInput` props type to `React.ElementType` to support more various kinds component
+- Edited more patched css
+- Refactor className, style with `cn` utils
 
 ## [v2.0.2] - `2024-11-19`
 

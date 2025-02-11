@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "../utils";
 
 const NavigateButton = ({
   className,
@@ -10,7 +11,7 @@ const NavigateButton = ({
 }: React.ComponentProps<"button">) => {
   return (
     <button
-      className={className}
+      className={cn(className)}
       type={type}
       onClick={onClick}
       disabled={disabled}

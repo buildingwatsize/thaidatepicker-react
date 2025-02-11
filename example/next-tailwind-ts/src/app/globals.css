@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-xs: 425px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: oklch(70% 0.1 155);
+  --color-accent: oklch(90.49% 0.0282 128.65);
+  --color-white: oklch(98.51% 0 0);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer base {
+  input {
+    @apply rounded-md border border-black ps-1;
+  }
+}
+
+:root {
+  --background: oklch(98.51% 0 0);
+  --foreground: oklch(20.46% 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(14.48% 0 0);
+    --foreground: oklch(98.51% 0 0);
+  }
+}
