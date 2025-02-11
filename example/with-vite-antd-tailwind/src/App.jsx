@@ -5,7 +5,6 @@ import Donate from "components/Donate";
 import Header from "components/Header";
 import Loading from "components/Loading";
 import { GetHash, ReplaceHash } from "utils/function";
-import "./App.css?inline";
 
 const AdvancedGuide = React.lazy(() => import("components/AdvancedGuide.jsx"));
 const Basic = React.lazy(() => import("components/Basic.jsx"));
@@ -78,11 +77,11 @@ const App = () => {
       >
         <div
           name="menuLogo"
-          className="h-8 m-4 bg-white/30 flex justify-center items-center"
+          className="h-8 m-4 bg-white/30 flex justify-center items-center group hover:bg-white transition-all duration-300 ease-in-out hover:rounded-md"
         >
           <a
             href="https://github.com/buildingwatsize/thaidatepicker-react"
-            className="flex items-center gap-2 text-black"
+            className="flex items-center gap-2 text-black! group-hover:text-neutral-900!"
           >
             <svg viewBox="0 0 16 16" version="1.1" height="24">
               <path
@@ -122,7 +121,7 @@ const App = () => {
         >
           <Header
             title={import.meta.env["VITE_PROJECT_NAME"]}
-            className="!mb-0 !mt-4"
+            className="mb-0! mt-4!"
           />
           <div className="text-p px-8 pt-4 pb-8 relative flex-1">
             <React.Suspense fallback={<Loading />}>

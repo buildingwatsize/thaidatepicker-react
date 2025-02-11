@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "../utils";
 
 const NavigateSelect = ({
   className,
@@ -8,7 +9,12 @@ const NavigateSelect = ({
   ...props
 }: React.SelectHTMLAttributes<HTMLSelectElement>) => {
   return (
-    <select className={className} value={value} onChange={onChange} {...props}>
+    <select
+      className={cn(className)}
+      value={value}
+      onChange={onChange}
+      {...props}
+    >
       {children}
     </select>
   );

@@ -2,6 +2,21 @@
 
 ## 🎉 Release - v2 🎉
 
+## [v2.1.0] - `2025-02-11`
+
+### Updated
+
+- Supported `React 19` ✨
+- Updated dependencies
+- Migrated React 19 forwardRef
+- Migrated deprecated `React.MutableRefObject` to `React.RefObject`
+
+### Edited
+
+- Edited `customInput` props type to `React.ElementType` to support more various kinds component
+- Edited more patched css
+- Refactor className, style with `cn` utils
+
 ## [v2.0.2] - `2024-11-19`
 
 ### Updated
@@ -218,6 +233,7 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v2.1.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.0
 [v2.0.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.0.2
 [v2.0.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.0.1
 [v2.0.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.0.0

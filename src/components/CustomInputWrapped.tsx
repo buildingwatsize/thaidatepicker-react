@@ -1,13 +1,14 @@
 import dayjs from "dayjs";
-import React, { forwardRef, useMemo } from "react";
+import React, { useMemo } from "react";
 import { ConvertToThaiYear } from "../utils";
 
-export const CustomInputWrapped = (
-  InputComponent?: React.ComponentType<any> | null,
-  inputProps?: React.InputHTMLAttributes<HTMLInputElement>,
-  displayFormat?: string
-) =>
-  forwardRef<HTMLDivElement, any>(({ value, ...props }: any, ref) => {
+export const CustomInputWrapped =
+  (
+    InputComponent?: React.ElementType | null,
+    inputProps?: React.InputHTMLAttributes<HTMLInputElement>,
+    displayFormat?: string
+  ) =>
+  ({ value, ref, ...props }: any) => {
     const thaiDate = useMemo(() => {
       if (value) {
         const date = dayjs(value);
@@ -22,23 +23,19 @@ export const CustomInputWrapped = (
       }
       return "";
     }, [value]);
+
+    if (InputComponent) {
+      return (
+        <InputComponent ref={ref} value={thaiDate} {...props} {...inputProps} />
+      );
+    }
     return (
-      <div ref={ref}>
-        {InputComponent ? (
-          <InputComponent
-            value={thaiDate}
-            // data-testid="thdpk-input" // in case of component can be forwarded `data-testid` props
-            {...props}
-            {...inputProps}
-          />
-        ) : (
-          <input
-            value={thaiDate}
-            data-testid="thdpk-input"
-            {...props}
-            {...inputProps}
-          />
-        )}
-      </div>
+      <input
+        ref={ref}
+        value={thaiDate}
+        data-testid="thdpk-input"
+        {...props}
+        {...inputProps}
+      />
     );
-  });
+  };

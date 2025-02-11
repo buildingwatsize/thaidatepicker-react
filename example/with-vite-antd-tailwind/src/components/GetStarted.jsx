@@ -89,7 +89,7 @@ const DemoThaiDatePicker = () => {
         value={value}
         onChange={(v) => setValue(v)}
         inputProps={{ displayFormat: "DD MMMM YYYY" }}
-        reactDatePickerProps={{ popperClassName: "!z-10" }} // which used temporary for displaying over the Properties table
+        reactDatePickerProps={{ popperClassName: "z-10!" }} // which used temporary for displaying over the Properties table
       />
       <span className="italic text-black/40">
         Note: {`inputProps={{ displayFormat: "DD MMMM YYYY" }}`}
