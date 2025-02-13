@@ -2,6 +2,12 @@
 
 ## 🎉 Release - v2 🎉
 
+## [v2.1.1] - `2025-02-13`
+
+### Updated
+
+- Patched for `peerDependencies` back-compatibility with `react^18.3.1`
+
 ## [v2.1.0] - `2025-02-11`
 
 ### Updated
@@ -233,6 +239,7 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v2.1.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.1
 [v2.1.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.0
 [v2.0.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.0.2
 [v2.0.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.0.1
