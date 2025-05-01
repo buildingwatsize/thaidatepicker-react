@@ -37,7 +37,7 @@
   "homepage": "https://github.com/buildingwatsize/thaidatepicker-react#readme",
   "dependencies": {
     "dayjs": "^1.11.13",
-    "react-datepicker": "^8.0.0"
+    "react-datepicker": "^8.3.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
