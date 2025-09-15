@@ -1,0 +1,97 @@
+/* CUSTOM CSS */
+.tdpk-header {
+  display: inline-flex;
+  justify-content: space-evenly;
+  gap: 4px;
+  padding: 2px 8px;
+}
+.tdpk-header-prev-btn {
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #aeaeae80;
+  border-radius: 0.3rem;
+}
+.tdpk-header-prev-btn:hover {
+  background-color: #ccc6;
+}
+.tdpk-header-select-month {
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #aeaeae80;
+  border-radius: 0.3rem;
+}
+.tdpk-header-select-month:hover {
+  background-color: #ccc6;
+}
+.tdpk-header-select-year {
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #aeaeae80;
+  border-radius: 0.3rem;
+}
+.tdpk-header-select-year:hover {
+  background-color: #ccc6;
+}
+.tdpk-header-next-btn {
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #aeaeae80;
+  border-radius: 0.3rem;
+}
+.tdpk-header-next-btn:hover {
+  background-color: #ccc6;
+}
+
+/* PATCHED */
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  display: inline-flex;
+}
+.react-datepicker__close-icon {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0.25rem;
+  margin-inline-end: 0.25rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+.react-datepicker__close-icon:focus,
+.react-datepicker__close-icon:focus-visible {
+  outline: none;
+}
+.react-datepicker__close-icon::after {
+  cursor: pointer;
+  background-color: #ccc;
+  color: #fff;
+  border-radius: 50%;
+  height: 0.75rem;
+  width: 0.75rem;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  content: "×";
+}
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  border-radius: 0.3rem;
+  background-color: #2579ba;
+  color: #fff;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: center;
+}

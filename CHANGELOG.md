@@ -2,6 +2,13 @@
 
 ## 🎉 Release - v2 🎉
 
+## [v2.1.4] - `2025-09-15`
+
+### Updated
+
+- Updated dependencies
+- Updated `react-datepicker@8.7.0` with their css
+
 ## [v2.1.3] - `2025-08-08`
 
 ### Updated
@@ -251,6 +258,7 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v2.1.4]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.4
 [v2.1.3]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.3
 [v2.1.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.2
 [v2.1.1]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.1

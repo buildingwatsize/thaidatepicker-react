@@ -8,6 +8,7 @@ const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 // Bundler is configured to load this as a processed minified CSS-string
+import patchStyles from "../external/patch.css";
 import styles from "../external/react-datepicker.css";
 
 const styleElementMap = new Map();
@@ -30,12 +31,21 @@ export const useStylesheet = (
       !styleElementMap.has(parentDocument) &&
       enable
     ) {
+      // main style
       const styleElement = parentDocument.createElement("style");
       styleElement.id = "external_react-datepicker.css";
       styleElement.innerHTML = styles as string;
       styleElementMap.set(parentDocument, styleElement);
 
       parentDocument.head.appendChild(styleElement);
+
+      // patch style
+      const patchStyleElement = parentDocument.createElement("style");
+      patchStyleElement.id = "external_patch.css";
+      patchStyleElement.innerHTML = patchStyles as string;
+      styleElementMap.set(parentDocument, patchStyleElement);
+
+      parentDocument.head.appendChild(patchStyleElement);
     }
   }, []);
 };
