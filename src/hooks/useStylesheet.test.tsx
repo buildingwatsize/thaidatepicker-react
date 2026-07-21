@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { useRef } from "react";
+import { beforeEach, describe, expect, test } from "vitest";
 import { useStylesheet } from "./useStylesheet";
 
 describe("Test hooks/useStylesheet", () => {

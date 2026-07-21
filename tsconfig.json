@@ -2,14 +2,14 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "moduleResolution": "Bundler",
     "strict": true,
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "allowJs": true,
+    "allowJs": true
   },
   "include": [
     "src/**/*",

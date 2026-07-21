@@ -22,7 +22,7 @@
     "react": "link:../../node_modules/react",
     "react-dom": "link:../../node_modules/react-dom",
     "tailwindcss": "^4.1.13",
-    "thaidatepicker-react": "../.."
+    "thaidatepicker-react": "link:../.."
   },
   "devDependencies": {
     "@types/react": "^19.1.13",

@@ -2,6 +2,15 @@
 
 ## 🎉 Release - v2 🎉
 
+## [v2.2.0] - `2025-07-21`
+
+### Updated
+
+- Updated dependencies
+- Migrated build tool from microbundle to tsup
+- Migrated tester from react-script to vitest
+- Removed react-scripts (unmaintained, incompatible with modern deps)
+
 ## [v2.1.4] - `2025-09-15`
 
 ### Updated
@@ -258,6 +267,7 @@ I have to skipping for the old versions which was unpublished once on first crea
 
 - Initialized Project
 
+[v2.2.0]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.2.0
 [v2.1.4]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.4
 [v2.1.3]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.3
 [v2.1.2]: https://github.com/buildingwatsize/thaidatepicker-react/releases/tag/v2.1.2

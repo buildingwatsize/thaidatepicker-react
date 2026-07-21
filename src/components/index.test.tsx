@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, test, vi } from "vitest";
 import { ThaiDatePicker } from ".";
 
 describe("ThaiDatePicker", () => {
@@ -71,7 +72,7 @@ describe("ThaiDatePicker", () => {
     expect(inputElement.value).toBe("02 1 43");
   });
   test("should be changeable value", () => {
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
     render(<ThaiDatePicker />);
     const inputElement = screen.queryByTestId(
       "thdpk-input"
