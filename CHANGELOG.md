@@ -2,6 +2,13 @@
 
 ## 🎉 Release - v2 🎉
 
+## [Unreleased]
+
+### Added
+
+- `thaiHolidays` prop: highlight Thai holidays and choose whether they are selectable (`"all"`), disabled (`"exclude"`), or the only selectable dates (`"only"`). Powered by `date-holidays`
+- Exported `GetThaiHolidays` and `IsThaiHoliday` utils
+
 ## [v2.2.0] - `2025-07-21`
 
 ### Updated

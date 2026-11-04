@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/buildingwatsize/thaidatepicker-react#readme",
   "dependencies": {
+    "date-holidays": "^3.38.0",
     "dayjs": "^1.11.21",
     "react-datepicker": "^9.1.0"
   },
