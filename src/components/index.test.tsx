@@ -108,6 +108,89 @@ describe("ThaiDatePicker", () => {
 
     expect(interceptInputValue).toBe(inputElement.value);
   });
+
+  describe("thaiHolidays", () => {
+    const open = () => {
+      fireEvent.click(screen.getByTestId("thdpk-input"));
+    };
+    const day = (n: number) =>
+      document.querySelector(
+        `.react-datepicker__day--0${String(n).padStart(2, "0")}:not(.react-datepicker__day--outside-month)`
+      ) as HTMLElement;
+
+    test("should not mark holidays by default", () => {
+      render(<ThaiDatePicker value="2026-04-01" />);
+      open();
+      expect(day(13)).not.toHaveClass("react-datepicker__day--holidays");
+      expect(day(13)).not.toHaveAttribute("aria-disabled", "true");
+    });
+
+    test("should highlight holidays", () => {
+      render(<ThaiDatePicker value="2026-04-01" thaiHolidays={{}} />);
+      open();
+      expect(day(13)).toHaveClass("react-datepicker__day--holidays");
+      expect(day(13).textContent).toContain("วันสงกรานต์");
+      expect(day(20)).not.toHaveClass("react-datepicker__day--holidays");
+    });
+
+    test("should not highlight when highlight is false", () => {
+      render(
+        <ThaiDatePicker
+          value="2026-04-01"
+          thaiHolidays={{ highlight: false, selectable: "exclude" }}
+        />
+      );
+      open();
+      expect(day(13)).not.toHaveClass("react-datepicker__day--holidays");
+      expect(day(13)).toHaveAttribute("aria-disabled", "true");
+    });
+
+    test("should disable holidays when selectable is exclude", () => {
+      render(
+        <ThaiDatePicker
+          value="2026-04-01"
+          thaiHolidays={{ selectable: "exclude" }}
+        />
+      );
+      open();
+      expect(day(13)).toHaveAttribute("aria-disabled", "true");
+      expect(day(20)).toHaveAttribute("aria-disabled", "false");
+    });
+
+    test("should enable only holidays when selectable is only", () => {
+      render(
+        <ThaiDatePicker value="2026-04-01" thaiHolidays={{ selectable: "only" }} />
+      );
+      open();
+      expect(day(13)).toHaveAttribute("aria-disabled", "false");
+      expect(day(20)).toHaveAttribute("aria-disabled", "true");
+    });
+
+    test("should combine with reactDatePickerProps.filterDate", () => {
+      render(
+        <ThaiDatePicker
+          value="2026-04-01"
+          thaiHolidays={{ selectable: "only" }}
+          reactDatePickerProps={{
+            filterDate: (d: Date) => d.getDate() !== 14,
+          }}
+        />
+      );
+      open();
+      expect(day(13)).toHaveAttribute("aria-disabled", "false");
+      expect(day(14)).toHaveAttribute("aria-disabled", "true");
+    });
+
+    test("should load holidays of the year navigated to", () => {
+      render(<ThaiDatePicker value="2026-12-01" thaiHolidays={{}} />);
+      open();
+      for (let i = 0; i < 25; i++) {
+        fireEvent.click(document.querySelector(".tdpk-header-next-btn")!);
+      }
+      // now January 2029
+      expect(day(1)).toHaveClass("react-datepicker__day--holidays");
+    });
+  });
 });
 
 // describe("WatDatePicker (Legacy name compatibility)", () => {

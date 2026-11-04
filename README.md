@@ -77,6 +77,7 @@ export default App;
 | **highlightDates**       | A highlight selected date. To use, you can provide an array of Date like `[new Date()]`                                                                                                                                                                  | _(Date \| HighlightDate)[]_                                                                                                                                                                                              | GetHighlightByDate()                             |             |
 | **customInput**          | A config for using custom input element. To use, you can provide a name of element like `Input`                                                                                                                                                          | _React.ComponentType<any> \| null_                                                                                                                                                                                       | null                                             |             |
 | **noIntegratedStyle**    | A config for define to exclude integrated css `Note: if you using 2 components, which the first one contain noIntegratedStyle props but the second is not. It will import css and then it apply to them all`                                             | _boolean_                                                                                                                                                                                                                | false                                            | v2.0.0      |
+| **thaiHolidays**         | Thai holidays (from [date-holidays](https://github.com/commenthol/date-holidays)). `null` turns it off. `highlight` marks holidays with their name as tooltip (default `true`). `selectable`: `"all"` keeps every date selectable, `"exclude"` disables holidays, `"only"` allows only holidays. `types` (default `["public"]`) and `language` (default `"th"`) pick which holidays and the name language. Combines with `reactDatePickerProps.filterDate`. | _Object { highlight?: boolean; selectable?: "all" \| "exclude" \| "only"; types?: ("public" \| "bank" \| "optional" \| "school" \| "observance")[]; language?: string; } \| null_ | null                                             | Unreleased  |
 
 ## 🎩 Some Useful Tricks
 
@@ -89,6 +90,14 @@ export default App;
    ```
 
    > However, be aware that the appearance may resemble the 'disabled' attribute, which could affect the user experience
+
+2. To show Thai holidays and disable them from selection (or allow only holidays with `"only"`):
+
+   ```jsx
+   <ThaiDatePicker thaiHolidays={{ selectable: "exclude" }} />
+   ```
+
+   `GetThaiHolidays(year)` and `IsThaiHoliday(date)` are exported too if you need the list yourself.
 
 ## 📝 Need More Example?
 
